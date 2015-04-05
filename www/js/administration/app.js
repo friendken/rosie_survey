@@ -16,4 +16,11 @@ config(function($stateProvider, $urlRouterProvider){
       },
       controller: 'dashboardController'
     })
+    .state('question-create', {
+      url: "/question-create",
+      views: {
+        "content": { templateUrl: 'www/partials/temp-question-create.html'}
+      },
+      controller: 'questionCreateController'
+    })
 })

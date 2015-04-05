@@ -7,10 +7,10 @@ jQuery(function($) {
   //* Chosen plugin and easy tabs plugin on dashboard *//
   $('.chosen').chosen();
   
-  $('#tab-container').easytabs({
-    animationSpeed: 300,
-    collapsible: false,
-  });
+//  $('#tab-container').easytabs({
+//    animationSpeed: 300,
+//    collapsible: false,
+//  });
 
   $('.typeahead').typeahead();
 

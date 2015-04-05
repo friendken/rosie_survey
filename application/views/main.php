@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Flatpoint - Responsive Web App Template</title>
+        <title>Survey</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -34,19 +34,19 @@
         <script src="www/js/library/jquery.mousewheel.min.js"></script>
         <script src="www/js/library/jquery.uniform.min.js"></script>
 
-        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCL6XtCGot7S7cfxnO6tRfeZx9kLQQRMtA&amp;sensor=false"></script>
+        <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCL6XtCGot7S7cfxnO6tRfeZx9kLQQRMtA&amp;sensor=false"></script>-->
         <script src="www/js/library/jquery.sparkline.min.js"></script>
         <script src="www/js/library/chosen.jquery.min.js"></script>
-        <script src="www/js/library/jquery.easytabs.js"></script>
+        <!--<script src="www/js/library/jquery.easytabs.js"></script>-->
         <script src="www/js/library/flot/excanvas.min.js"></script>
-    <!--    <script src="www/js/library/flot/jquery.flot.js"></script>
+        <script src="www/js/library/flot/jquery.flot.js"></script>
         <script src="www/js/library/flot/jquery.flot.pie.js"></script>
         <script src="www/js/library/flot/jquery.flot.selection.js"></script>
         <script src="www/js/library/flot/jquery.flot.resize.js"></script>
-        <script src="www/js/library/flot/jquery.flot.orderBars.js"></script>-->
-        <script src="www/js/library/maps/jquery.vmap.js"></script>
-        <script src="www/js/library/maps/maps/jquery.vmap.world.js"></script>
-        <script src="www/js/library/maps/data/jquery.vmap.sampledata.js"></script>
+        <script src="www/js/library/flot/jquery.flot.orderBars.js"></script>
+        <!--<script src="www/js/library/maps/jquery.vmap.js"></script>-->
+        <!--<script src="www/js/library/maps/maps/jquery.vmap.world.js"></script>-->
+        <!--<script src="www/js/library/maps/data/jquery.vmap.sampledata.js"></script>-->
         <script src="www/js/library/jquery.autosize-min.js"></script>
         <script src="www/js/library/charCount.js"></script>
         <script src="www/js/library/jquery.minicolors.js"></script>
@@ -61,6 +61,8 @@
         <script src="www/js/library/bootstrap-fileupload.js"></script>
         <script src="www/js/library/jquery.inputmask.bundle.js"></script>
         <script src="www/js/flatpoint_core.js"></script>
+        <script src="www/js/library/bootstrap-select.js"></script>
+        <script src="www/third_party/ckeditor/ckeditor.js"></script>
 
         <script src="www/js/angular/angular.js"></script>
         <script src="www/js/angular-route/angular-ui-router.js"></script>
@@ -206,15 +208,17 @@
         </div>  
 
         <div id="content" class="no-sidebar" ng-app="administration"> <!-- Content start -->
-            <div class="top_bar">
-                <ul class="breadcrumb">
-                    <li><a href="dashboard.html"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-                    <li class="active"><a href="#">Dashboard</a></li>
-                </ul>
-            </div>
+            <div class="inner_content">
+                <div class="top_bar">
+                    <ul class="breadcrumb">
+                        <li><a href="dashboard.html"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
 
-            <div class="widgets_area" ui-view="content">
+                <div class="widgets_area" ui-view="content">
 
+                </div>
             </div>
         </div>
     </div>
@@ -260,11 +264,11 @@
                 }
             });
 
-            $('.inner_sidebar').easytabs({
-                animationSpeed: 300,
-                collapsible: false,
-                updateHash: false
-            });
+//            $('.inner_sidebar').easytabs({
+//                animationSpeed: 300,
+//                collapsible: false,
+//                updateHash: false
+//            });
         });
     </script>
 
