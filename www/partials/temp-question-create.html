@@ -46,10 +46,8 @@
                                 <div class="form_row">
                                 <label class="field_name">select type answer</label>
                                 <div class="field">
-                                    <select class="selectpicker" style="display: none;">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option selected="selected">Relish</option>
+                                    <select class="selectpicker">
+                                        <option ng-repeat="item in selects">{{item.name}}</option>
                                     </select>
                                 </div>
                                 </div>
