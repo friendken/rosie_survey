@@ -1726,8 +1726,8 @@ ul.e-tabs li a i {
   height: 60px;
   padding: 10px 20px;
   margin: 1px 0 1px 0;
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
+/*  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;*/
 }
 
 .quick-actions ul {

@@ -12,14 +12,14 @@ config(function($stateProvider, $urlRouterProvider){
     .state('dashboard', {
       url: "/",
       views: {
-        "content": { templateUrl: 'www/partials/temp-dashboard.html'}
+        "content": { templateUrl: 'www/partials/administration/temp-dashboard.html'}
       },
       controller: 'dashboardController'
     })
     .state('question-create', {
       url: "/question-create",
       views: {
-        "content": { templateUrl: 'www/partials/temp-question-create.html'}
+        "content": { templateUrl: 'www/partials/administration/temp-question-create.html'}
       },
       controller: 'questionCreateController'
     })

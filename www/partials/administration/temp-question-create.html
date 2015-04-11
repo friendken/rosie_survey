@@ -1,0 +1,166 @@
+<div ng-app="administration" ng-controller="questionCreateController">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="well blue">
+                <div class="well-header">
+                    <h5>Create Question</h5>
+                    <ul>
+                        <li class="color_pick"><a><i class="icon-th"></i></a>
+                            <ul>
+                                <li><a class="blue set_color" href="#"></a></li>
+                                <li><a class="light_blue set_color" href="#"></a></li>
+                                <li><a class="grey set_color" href="#"></a></li>
+                                <li><a class="pink set_color" href="#"></a></li>
+                                <li><a class="red set_color" href="#"></a></li>
+                                <li><a class="orange set_color" href="#"></a></li>
+                                <li><a class="yellow set_color" href="#"></a></li>
+                                <li><a class="green set_color" href="#"></a></li>
+                                <li><a class="dark_green set_color" href="#"></a></li>
+                                <li><a class="turq set_color" href="#"></a></li>
+                                <li><a class="dark_turq set_color" href="#"></a></li>
+                                <li><a class="purple set_color" href="#"></a></li>
+                                <li><a class="violet set_color" href="#"></a></li>
+                                <li><a class="dark_blue set_color" href="#"></a></li>
+                                <li><a class="dark_red set_color" href="#"></a></li>
+                                <li><a class="brown set_color" href="#"></a></li>
+                                <li><a class="black set_color" href="#"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="well-content no_padding">
+                    <div class="navbar-inner" data-hbo-tabs>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a ng-click="activeTab('tab-en')" data-toggle="tab">English</a></li>
+                            <li class=""><a ng-click="activeTab('tab-vn')" data-toggle="tab">Tiếng Việt</a></li>
+                            <li class=""><a ng-click="activeTab('tab-ch')" data-toggle="tab">中国</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-en">
+                            <h2>Create Question</h2>
+                            <textarea id="question-en"></textarea>
+                            <h2>Create Answer</h2>
+                            <form>
+                                <div class="form_row">
+                                <label class="field_name">select type answer</label>
+                                <div class="field">
+                                    <select class="selectpicker" ng-model="typeQuestion">
+                                        <option ng-repeat="item in selects" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="form_row">
+                                    <label class="quick-actions field_name" style="width: 40px">
+                                        <ul>
+                                            <li>
+                                                <a rel="tooltip" data-placement="bottom" ng-click="addMoreAnswer()" data-original-title="Add new article"><i class="icon-plus"></i></a>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                    <div class="field answer-en">
+                                        <div ng-switch="typeQuestion">
+                                            <div ng-switch-when="2" class="type-question">
+                                                <div>
+                                                    <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-when="1" class="type-question">
+                                                <div style="margin-bottom: 10px;">
+                                                    <input type="text" placeholder="label" class="question-answer label-answer" style="border: 0; width: 90px"/><input type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tab-vn">
+                            <h2>Tạo câu hỏi</h2>
+                            <textarea id="question-vn"></textarea>
+                            <h2>Tạo câu trả lời</h2>
+                            <form>
+                                <div class="form_row">
+                                <label class="field_name">select type answer</label>
+                                <div class="field">
+                                    <select class="selectpicker" ng-model="typeQuestion">
+                                        <option ng-repeat="item in selects" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="form_row">
+                                    <label class="quick-actions field_name" style="width: 40px">
+                                        <ul>
+                                            <li>
+                                                <a rel="tooltip" data-placement="bottom" ng-click="addMoreAnswer()" data-original-title="Add new article"><i class="icon-plus"></i></a>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                    <div class="field answer-vn">
+                                        <div ng-switch="typeQuestion">
+                                            <div ng-switch-when="2" class="type-question">
+                                                <div>
+                                                    <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-when="1" class="type-question">
+                                                <div style="margin-bottom: 10px;">
+                                                    <input type="text" placeholder="label" class="label-answer question-answer" style="border: 0; width: 90px"/><input type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tab-ch">
+                            <h2>Create Question</h2>
+                            <textarea id="question-ch"></textarea>
+                            <h2>Create Question</h2>
+                            <form>
+                                <div class="form_row">
+                                <label class="field_name">select type answer</label>
+                                <div class="field">
+                                    <select class="selectpicker" ng-model="typeQuestion">
+                                        <option ng-repeat="item in selects" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="form_row">
+                                    <label class="quick-actions field_name" style="width: 40px">
+                                        <ul>
+                                            <li>
+                                                <a rel="tooltip" data-placement="bottom" ng-click="addMoreAnswer()" data-original-title="Add new article"><i class="icon-plus"></i></a>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                    <div class="field answer-ch">
+                                        <div ng-switch="typeQuestion">
+                                            <div ng-switch-when="2" class="type-question">
+                                                <div>
+                                                    <input type="radio"/><input type="text" placeholder="type here" class="question-answer" style="border: 0"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-when="1" class="type-question">
+                                                <div style="margin-bottom: 10px;">
+                                                    <input type="text" placeholder="label" class="label-answer question-answer" style="border: 0; width: 90px"/><input type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="form_row" style="margin-bottom: 10px">
+                        <div class="field">
+                            <a ng-click="save()" class="blue btn">Save Question</a>
+                            <a class="red btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

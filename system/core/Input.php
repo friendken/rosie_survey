@@ -854,12 +854,12 @@ class CI_Input {
 	 *				(default: FALSE)
 	 * @return 	string
 	 */
-	public function method($upper = FALSE)
-	{
-		return ($upper)
-			? strtoupper($this->server('REQUEST_METHOD'))
-			: strtolower($this->server('REQUEST_METHOD'));
-	}
+//	public function method($upper = FALSE)
+//	{
+//		return ($upper)
+//			? strtoupper($this->server('REQUEST_METHOD'))
+//			: strtolower($this->server('REQUEST_METHOD'));
+//	}
 
 	// ------------------------------------------------------------------------
 
