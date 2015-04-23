@@ -1,0 +1,103 @@
+<div ng-app="administration" ng-controller="questionPreviewController">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="well {{ question.question_type | colorBox }}">
+                <div class="well-header">
+                    <h5>Preview Question</h5>
+                    <ul>
+                        <li class="color_pick"><a><i class="icon-th"></i></a>
+                            <ul>
+                                <li><a class="blue set_color" href="#"></a></li>
+                                <li><a class="light_blue set_color" href="#"></a></li>
+                                <li><a class="grey set_color" href="#"></a></li>
+                                <li><a class="pink set_color" href="#"></a></li>
+                                <li><a class="red set_color" href="#"></a></li>
+                                <li><a class="orange set_color" href="#"></a></li>
+                                <li><a class="yellow set_color" href="#"></a></li>
+                                <li><a class="green set_color" href="#"></a></li>
+                                <li><a class="dark_green set_color" href="#"></a></li>
+                                <li><a class="turq set_color" href="#"></a></li>
+                                <li><a class="dark_turq set_color" href="#"></a></li>
+                                <li><a class="purple set_color" href="#"></a></li>
+                                <li><a class="violet set_color" href="#"></a></li>
+                                <li><a class="dark_blue set_color" href="#"></a></li>
+                                <li><a class="dark_red set_color" href="#"></a></li>
+                                <li><a class="brown set_color" href="#"></a></li>
+                                <li><a class="black set_color" href="#"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="well-content no_padding">
+                    <div class="navbar-inner" data-hbo-tabs>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a ng-click="activeTab('tab-en')" data-toggle="tab">English</a></li>
+                            <li class=""><a ng-click="activeTab('tab-vn')" data-toggle="tab">Tiếng Việt</a></li>
+                            <li class=""><a ng-click="activeTab('tab-ch')" data-toggle="tab">中国</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-en">
+                            <div ng-bind-html="question.en"></div>
+                            <div ng-switch="question.question_type">
+                                <div ng-switch-when="3">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.en">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="2">
+                                    <div style="padding: 5px">
+                                        <ol>
+                                            <li ng-repeat="(key,item) in question.question_detail.en">{{item.value}}</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-vn">
+                            <div ng-bind-html="question.vn"></div>
+                            <div ng-switch="question.question_type">
+                                <div ng-switch-when="3">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.vn">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="2">
+                                    <div style="padding: 5px">
+                                        <ol>
+                                            <li ng-repeat="(key,item) in question.question_detail.vn">{{item.value}}</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-ch">
+                            <div ng-bind-html="question.ch"></div>
+                            <div ng-switch="question.question_type">
+                                <div ng-switch-when="3">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.ch">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="2">
+                                    <div style="padding: 5px">
+                                        <ol>
+                                            <li ng-repeat="(key,item) in question.question_detail.ch">{{item.value}}</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_row" style="margin-bottom: 10px">
+                        <div class="field">
+                            <a href="#question-edit-{{question_type_name}}/{{question.id}}" class="blue btn">Edit Question</a>
+                            <a href="#question-list" class="red btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

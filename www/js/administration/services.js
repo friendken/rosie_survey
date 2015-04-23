@@ -19,9 +19,14 @@ angular.module('administration.services', [])
         }])
         .service('questionGroup',['$http',function($http){
             return{
-                getQuestionGroup: function(callback){
-                    $http.get(config.base + 'administration/questions/getQuestionGroup').success(function(data){
+                getGroup: function(callback){
+                    $http.get(config.base + 'administration/questions/getGroup').success(function(data){
                         data.question_group.unshift({id:0,name:'Select Group'})
+                        callback(data)
+                    })
+                },
+                getQuestionDetail: function(question_id,callback){
+                    $http.get(config.base + 'administration/questions/getQuestionDetail/' + question_id).success(function(data){
                         callback(data)
                     })
                 }

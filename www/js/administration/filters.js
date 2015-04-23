@@ -1,7 +1,19 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+angular.module('administration.filters',[])
+    .filter('colorBox',function(){
+        return function(type){
+            switch(type){
+                case '1':
+                    return 'green';
+                    break;
+                case '2':
+                    return 'light_blue';
+                    break;
+                case '3':
+                    return 'turq';
+                    break;
+                default:
+                    return 'orange';
+                    break;
+            }
+        }
+    })
