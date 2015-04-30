@@ -3,6 +3,11 @@ angular.module('administration.controllers', ['ui.bootstrap'])
     .controller('dashboardController', ['$scope', function ($scope) {
             console.log('load ok');
         }])
+    .controller('headerController',['$http','$scope',function($http,$scope){
+        $scope.logout = function(){
+            console.log('ok')
+        }
+    }])
     .controller('questionCreateSingleController', 
                 ['$scope', '$timeout', '$http','initCkeditor','questionGroup', 
         function ($scope, $timeout, $http, initCkeditor,questionGroup) {

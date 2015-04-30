@@ -78,9 +78,9 @@
         </script>
     </head>
 
-    <body>
+    <body ng-app="administration">
 
-        <header class="dark_grey"> <!-- Header start -->
+        <header class="dark_grey" ng-controller="headerController"> <!-- Header start -->
             <a href="#" class="logo_image"><span class="hidden-480">FlatPoint</span></a>
             <ul class="header_actions pull-left hidden-480 hidden-768">
                 <li rel="tooltip" data-placement="bottom" title="Hide/Show main navigation" ><a href="#" class="hide_navigation"><i class="icon-chevron-left"></i></a></li>
@@ -199,7 +199,7 @@
                         <li><a href="#"><i class="icon-remove"></i> Logout</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="icon-signout"></i> <span class="hidden-768 hidden-480">Logout</span></a></li>
+                <li><a href="administration/login/logout"><i class="icon-signout"></i> <span class="hidden-768 hidden-480">Logout</span></a></li>
                 <li class="responsive_menu"><a class="iconic" href="#"><i class="icon-reorder"></i></a></li>
             </ul>
         </header>
@@ -208,7 +208,7 @@
             <?php include 'include/left_menu_admin.html'; ?>
         </div>  
 
-        <div id="content" class="no-sidebar" ng-app="administration"> <!-- Content start -->
+            <div id="content" class="no-sidebar" ng-app="administration"> <!-- Content start -->
             <div class="inner_content">
                 <div class="top_bar">
                     <ul class="breadcrumb">
