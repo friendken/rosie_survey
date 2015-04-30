@@ -37,6 +37,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 $http.post(config.base + 'administration/questions/addQuestionSingle',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
@@ -88,6 +89,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 $http.post(config.base + 'administration/questions/addQuestionMultiple',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
@@ -141,6 +143,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 $http.post(config.base + 'administration/questions/addQuestionGroup',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
@@ -178,6 +181,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 $http.post(config.base + 'administration/questions/addQuestionSingle',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
@@ -195,12 +199,27 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                             coneHelperSize: true,
                             placeholder: 'sortable-box-placeholder round-all',
                             forcePlaceholderSize: true,
-                            tolerance: "pointer"
+                            tolerance: "pointer",
+                            update: function(event,ui){
+                                $scope.undateOrder(ui)
+                            }
                           });
                     });
                 });
             };
             $scope.init();
+            $scope.undateOrder = function(el){
+                var order = new Array(),
+                    i = 1;
+                jQuery('.order-question').each(function(){
+                    order.push({order: i,questionId: jQuery(this).data('question-id')})
+                    i++
+                })
+            
+                $http.post(config.base + 'administration/questions/updateOrder',order).success(function(data){
+                    console.log(data)
+                })
+            }
     }])
     .controller('questionPreviewController',
                 ['$http','$scope','$timeout','$stateParams','questionGroup','$sce',
@@ -240,17 +259,22 @@ angular.module('administration.controllers', ['ui.bootstrap'])
         function ($scope, $timeout, $http, initCkeditor,questionGroup,$stateParams) {
             
             $scope.typeQuestion = 1;
-            questionGroup.getGroup(function(data){
-                $scope.groups = data.question_group
-                $timeout(function () {
-                    jQuery('.selectpicker').selectpicker();
-                })
-                $scope.groupQuestion = 0
-            });
+            $scope.initSelectBox = function(question_group_id){
+                questionGroup.getGroup(function(data){
+                    $scope.groups = data.question_group
+                    $timeout(function () {
+                        jQuery('.selectpicker').val(question_group_id)
+                        jQuery('.selectpicker').selectpicker();
+                    })
+                    $scope.groupQuestion = question_group_id
+                });
+            }
             questionGroup.getQuestionDetail($stateParams.question_id,function(data){
                 $scope.question = data.question
+                initCkeditor.init();
+                $scope.initSelectBox(data.question.question_group_id)
             })
-            initCkeditor.init();
+            
             $scope.activeTab = function (tab) {
                 jQuery('.tab-pane').removeClass('active');
                 jQuery('#' + tab).addClass('active');
@@ -268,25 +292,34 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 data['question']['ch'] = CKEDITOR.instances['question-ch'].getData().trim();
                 data['question']['question_type'] = $scope.typeQuestion;
                 data['question']['question_group_id'] = $scope.groupQuestion;
+                data['question']['id'] = $stateParams.question_id
                 
                 $http.post(config.base + 'administration/questions/addQuestionSingle',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
     .controller('questionEditMultipleController', 
-                ['$scope', '$timeout', '$http','initCkeditor', 'questionGroup',
-        function ($scope, $timeout, $http,initCkeditor, questionGroup) {
-            initCkeditor.init();
+                ['$scope', '$timeout', '$http','initCkeditor', 'questionGroup', '$stateParams',
+        function ($scope, $timeout, $http,initCkeditor, questionGroup, $stateParams) {
             $scope.typeQuestion = '3';
-            questionGroup.getGroup(function(data){
+            $scope.initSelectBox = function (question_group_id){
+                questionGroup.getGroup(function(data){
                 $scope.groups = data.question_group
                 $timeout(function () {
+                    jQuery('.selectpicker').val(question_group_id)
                     jQuery('.selectpicker').selectpicker();
                 })
-                $scope.groupQuestion = 0
+                $scope.groupQuestion = question_group_id
             });
+            }
+            questionGroup.getQuestionDetail($stateParams.question_id,function(data){
+                $scope.question = data.question
+                initCkeditor.init();
+                $scope.initSelectBox(data.question.question_group_id)
+            })
             $scope.addMoreAnswer = function(){
                 jQuery('.type-question').append('<div><input type="radio"/><input placeholder="type here" class="question-answer" type="text" style="border: 0;width: 500px;"/></div>')
                 jQuery('.type-question input:last-child').focus()
@@ -309,6 +342,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 data['question']['ch'] = CKEDITOR.instances['question-ch'].getData().trim();
                 data['question']['question_type'] = $scope.typeQuestion;
                 data['question']['question_group_id'] = $scope.groupQuestion;
+                data['question']['id'] = $stateParams.question_id;
                 //get answer
                 var languages = ['en','vn','ch']
                 languages.forEach(function(language){
@@ -320,24 +354,33 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                     });
                 });
                 
-                $http.post(config.base + 'administration/questions/addQuestionMultiple',data)
+                $http.post(config.base + 'administration/questions/editQuestionMultiple',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
     .controller('questionEditGroupController', 
-            ['$scope', '$timeout', '$http','initCkeditor', 'questionGroup',
-        function ($scope, $timeout, $http, initCkeditor, questionGroup) {
-            initCkeditor.init()
+            ['$scope', '$timeout', '$http','initCkeditor', 'questionGroup','$stateParams',
+        function ($scope, $timeout, $http, initCkeditor, questionGroup,$stateParams) {
+            
             $scope.typeQuestion = '2';
-            questionGroup.getGroup(function(data){
+            $scope.initSelectBox = function (question_group_id){
+                questionGroup.getGroup(function(data){
                 $scope.groups = data.question_group
                 $timeout(function () {
+                    jQuery('.selectpicker').val(question_group_id)
                     jQuery('.selectpicker').selectpicker();
                 })
-                $scope.groupQuestion = 0
+                $scope.groupQuestion = question_group_id
             });
+            }
+            questionGroup.getQuestionDetail($stateParams.question_id,function(data){
+                $scope.question = data.question
+                initCkeditor.init();
+                $scope.initSelectBox(data.question.question_group_id)
+            })
             
             $scope.addMoreAnswer = function(){
                 jQuery('.type-question').append('<div><textarea class="span12 sub-question" cols="40" rows="5"></textarea></div>')
@@ -354,6 +397,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                     alert('please select a group for question')
                     return false
                 }
+                
                 var data = {question: {},sub_question: {}};
                 //get question
                 data['question']['en'] = CKEDITOR.instances['question-en'].getData().trim();
@@ -361,6 +405,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 data['question']['ch'] = CKEDITOR.instances['question-ch'].getData().trim();
                 data['question']['question_type'] = $scope.typeQuestion;
                 data['question']['question_group_id'] = $scope.groupQuestion;
+                data['question']['id'] = $stateParams.question_id
                 
                 //get answer
                 var languages = ['en','vn','ch']
@@ -373,24 +418,33 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                     });
                 });
                 
-                $http.post(config.base + 'administration/questions/addQuestionGroup',data)
+                $http.post(config.base + 'administration/questions/editQuestionGroup',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])
     .controller('questionEditSpecialController', 
-                ['$scope', '$timeout', '$http','initCkeditor','questionGroup', 
-        function ($scope, $timeout, $http, initCkeditor,questionGroup) {
-            initCkeditor.init();
+                ['$scope', '$timeout', '$http','initCkeditor','questionGroup','$stateParams', 
+        function ($scope, $timeout, $http, initCkeditor,questionGroup,$stateParams) {
+            
             $scope.typeQuestion = 4;
-            questionGroup.getGroup(function(data){
-                $scope.groups = data.question_group;
+            $scope.initSelectBox = function (question_group_id){
+                questionGroup.getGroup(function(data){
+                $scope.groups = data.question_group
                 $timeout(function () {
+                    jQuery('.selectpicker').val(question_group_id)
                     jQuery('.selectpicker').selectpicker();
-                });
-                $scope.groupQuestion = 0;
+                })
+                $scope.groupQuestion = question_group_id
             });
+            }
+            questionGroup.getQuestionDetail($stateParams.question_id,function(data){
+                $scope.question = data.question
+                initCkeditor.init();
+                $scope.initSelectBox(data.question.question_group_id)
+            })
             
             $scope.activeTab = function (tab) {
                 jQuery('.tab-pane').removeClass('active');
@@ -409,10 +463,12 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 data['question']['ch'] = CKEDITOR.instances['question-ch'].getData().trim();
                 data['question']['question_type'] = $scope.typeQuestion;
                 data['question']['question_group_id'] = $scope.groupQuestion;
+                data['question']['id'] = $stateParams.question_id
                 
                 $http.post(config.base + 'administration/questions/addQuestionSingle',data)
                         .success(function(result){
                             console.log(result);
+                            alert('Well done! You successfully saved this...')
                         });
             };
         }])

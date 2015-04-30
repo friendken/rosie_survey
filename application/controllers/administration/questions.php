@@ -84,11 +84,33 @@ Class Questions extends CI_Controller {
 
         echo json_encode('ok');
     }
+    
+    public function editQuestionMultiple(){
+        $data = $this->input->json();
+        $this->questions->update($data->question,array('id' => $data->question->id));
+        $this->question_detail->delete(array('question_id' => $data->question->id));
+        
+        $answers = array();
+
+        for ($i = 0; $i < count($data->answer->en); $i++) {
+            foreach ($data->answer as $key => $row) {
+                $answers[$i][$key] = $row[$i];
+            }
+            $answers[$i]['question_type'] = $data->question->question_type;
+            $answers[$i]['question_id'] = $data->question->id;
+            $this->question_detail->insert($answers[$i]);
+        }
+
+        echo json_encode('ok');
+    }
 
     public function addQuestionSingle() {
         $data = $this->input->json();
-        $question_id = $this->questions->insert($data->question);
-        echo json_encode($question_id);
+        if(isset($data->question->id)){
+            $this->questions->update($data->question,array('id' => $data->question->id));
+        }else
+            $question_id = $this->questions->insert($data->question);
+        echo json_encode('success');
     }
 
     public function addQuestionGroup() {
@@ -108,9 +130,33 @@ Class Questions extends CI_Controller {
 
         echo json_encode($subQuestion);
     }
+    public function editQuestionGroup(){
+        $data = $this->input->json();
+        $this->questions->update($data->question,array('id' => $data->question->id));
+        $this->questions->delete(array('parent_id' => $data->question->id));
+        $subQuestion = array();
 
+        for ($i = 0; $i < count($data->sub_question->en); $i++) {
+            foreach ($data->sub_question as $key => $row) {
+                $subQuestion[$i][$key] = $row[$i];
+            }
+            $subQuestion[$i]['question_type'] = $data->question->question_type;
+            $subQuestion[$i]['question_group_id'] = $data->question->question_group_id;
+            $subQuestion[$i]['parent_id'] = $data->question->id;
+            $this->questions->insert($subQuestion[$i]);
+        }
+
+        echo json_encode($subQuestion);
+    }
+    public function updateOrder(){
+        $data = $this->input->json();
+        foreach ($data as $key => $row){
+            $this->questions->update(array('order' => $row->order),array('id' => $row->questionId));
+        }
+        echo json_encode('success');
+    }
     public function getQuestion() {
-        $questions = $this->questions->get_array(array('parent_id' => '0'));
+        $questions = $this->questions->getQuestionOrder();
         echo json_encode(array('questions' => $questions));
     }
 

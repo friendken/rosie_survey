@@ -17,6 +17,13 @@ angular.module('administration.services', [])
                 }
             };
         }])
+        .service('alert',[function(){
+            return {
+                success: function(el){
+                    var html = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button><strong>Well done!</strong><br> You successfully saved this...</div>'
+                }
+            }
+        }])
         .service('questionGroup',['$http',function($http){
             return{
                 getGroup: function(callback){

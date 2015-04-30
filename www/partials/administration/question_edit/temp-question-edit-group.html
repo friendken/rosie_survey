@@ -1,7 +1,7 @@
 <div ng-app="administration" ng-controller="questionEditGroupController">
     <div class="row-fluid">
         <div class="span6">
-            <div class="well blue">
+            <div class="well {{question.question_type | colorBox}}">
                 <div class="well-header">
                     <h5>Create Question</h5>
                     <ul>
@@ -43,7 +43,7 @@
                             <select class="selectpicker" ng-model="groupQuestion" title='select group'>
                                 <option ng-repeat="item in groups" value="{{item.id}}">{{item.name}}</option>
                             </select>
-                            <textarea id="question-en"></textarea>
+                            <textarea id="question-en">{{question.en}}</textarea>
                             <h2>Create Sub Question</h2>
                             <form>
                                 <div class="form_row">
@@ -56,8 +56,8 @@
                                     </label>
                                     <div class="field answer-en">
                                         <div class="type-question">
-                                            <div>
-                                                <textarea class="span12 sub-question" cols="40" rows="5"></textarea>
+                                            <div ng-repeat="(key,item) in question.question_detail.en">
+                                                <textarea class="span12 sub-question" cols="40" rows="5">{{item.value}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="tab-pane" id="tab-vn">
                             <h2>Tạo câu hỏi</h2>
-                            <textarea id="question-vn"></textarea>
+                            <textarea id="question-vn">{{question.vn}}</textarea>
                             <h2>Tạo câu trắc nghiệm</h2>
                             <form>
                                 <div class="form_row">
@@ -79,8 +79,8 @@
                                     </label>
                                     <div class="field answer-vn">
                                         <div class="type-question">
-                                            <div>
-                                                <textarea class="span12 sub-question" cols="40" rows="5"></textarea>
+                                            <div ng-repeat="(key,item) in question.question_detail.vn">
+                                                <textarea class="span12 sub-question" cols="40" rows="5">{{item.value}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="tab-pane" id="tab-ch">
                             <h2>Create Question</h2>
-                            <textarea id="question-ch"></textarea>
+                            <textarea id="question-ch">{{question.ch}}</textarea>
                             <h2>Create multiple choice</h2>
                             <form>
                                 <div class="form_row">
@@ -102,8 +102,8 @@
                                     </label>
                                     <div class="field answer-ch">
                                         <div class="type-question">
-                                            <div>
-                                                <textarea class="span12 sub-question" cols="40" rows="5"></textarea>
+                                            <div ng-repeat="(key,item) in question.question_detail.ch">
+                                                <textarea class="span12 sub-question" cols="40" rows="5">{{item.value}}</textarea>
                                             </div>
                                         </div>
                                     </div>

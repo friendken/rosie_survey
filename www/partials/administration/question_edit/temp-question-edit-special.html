@@ -1,7 +1,7 @@
 <div ng-app="administration" ng-controller="questionEditSpecialController">
     <div class="row-fluid">
         <div class="span6">
-            <div class="well blue">
+            <div class="well {{question.question_type | colorBox}}">
                 <div class="well-header">
                     <h5>Create Question</h5>
                     <ul>
@@ -43,21 +43,21 @@
                             <select class="selectpicker" ng-model="groupQuestion" title='select group'>
                                 <option ng-repeat="item in groups" value="{{item.id}}">{{item.name}}</option>
                             </select>
-                            <textarea id="question-en"></textarea>
+                            <textarea id="question-en">{{question.en}}</textarea>
                         </div>
                         <div class="tab-pane" id="tab-vn">
                             <h2>Tạo câu hỏi</h2>
-                            <textarea id="question-vn"></textarea>
+                            <textarea id="question-vn">{{question.vn}}</textarea>
                         </div>
                         <div class="tab-pane" id="tab-ch">
                             <h2>Create Question</h2>
-                            <textarea id="question-ch"></textarea>
+                            <textarea id="question-ch">{{question.ch}}</textarea>
                         </div>
                     </div>
                     <div class="form_row" style="margin-bottom: 10px">
                         <div class="field">
                             <a ng-click="save()" class="blue btn">Save Question</a>
-                            <a class="red btn">Cancel</a>
+                            <a href="#question-preview/{{question.id}}" class="red btn">Cancel</a>
                         </div>
                     </div>
                 </div>

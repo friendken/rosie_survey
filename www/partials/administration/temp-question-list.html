@@ -1,7 +1,7 @@
 <div ng-app="administration" ng-controller="questionListController">
     <div class="row-fluid" id="sortable_boxes">
         <div class="span4 column sortable">
-            <div ng-repeat="(key,item) in questions" class="well {{item.question_type | colorBox}}">
+            <div ng-repeat="(key,item) in questions" class="well order-question {{item.question_type | colorBox}}" data-question-id="{{item.id}}">
                 <div class="well-header">
                     <h5>Question {{key + 1}}</h5>
                     <ul>
