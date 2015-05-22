@@ -11,9 +11,18 @@ Class Questions extends CI_Controller {
     public function index() {
         
     }
-
+    public function updatePagination(){
+        $data = $this->input->json();
+        $this->load->model('question_pagination_model','question_pagination');
+        $this->question_pagination->truncateTable();
+        foreach ($data as $key => $row){
+            $this->question_pagination->insert($row);
+        }
+        echo json_encode($data);
+    }
     public function getQuestionDetail($question_id) {
         $question = $this->questions->get_by_id($question_id);
+
         switch ($question->question_type) {
             case '1':
                 echo json_encode(array('question' => $question));
@@ -22,6 +31,7 @@ Class Questions extends CI_Controller {
                 $this->getQuestionGroup($question);
                 break;
             case '3':
+            case '5':
                 $this->getQuestionMultiple($question);
                 break;
             default:
@@ -70,6 +80,8 @@ Class Questions extends CI_Controller {
 
     public function addQuestionMultiple() {
         $data = $this->input->json();
+        $order = $this->questions->getTheLastOrder();
+        $data->question->order = (int)$order->order_number + 1;
         $question_id = $this->questions->insert($data->question);
         $answers = array();
 
@@ -106,15 +118,36 @@ Class Questions extends CI_Controller {
 
     public function addQuestionSingle() {
         $data = $this->input->json();
+        $order = $this->questions->getTheLastOrder();
+        $data->question->order = (int)$order->order_number + 1;
         if(isset($data->question->id)){
             $this->questions->update($data->question,array('id' => $data->question->id));
         }else
             $question_id = $this->questions->insert($data->question);
         echo json_encode('success');
     }
-
+    public function addQuestionSpecial(){
+        $data = $this->input->json();
+        $order = $this->questions->getTheLastOrder();
+        $data->question->order = (int)$order->order_number + 1;
+        preg_match_all('/answer_checkbox_\d/i',$data->question->en, $matches);
+        
+        $quantity = count($matches[0]) / 2;
+        
+        $question_id = $this->questions->insert($data->question);
+        for ($i = 0; $i < $quantity;$i++){
+            $this->questions->insert(array('en' => 'checkbox','vn' => 'checkbox','ch' => 'checkbox',
+                                          'parent_id' => $question_id,
+                                          'question_group_id' => $data->question->question_group_id,
+                                          'order' => $order->order_number,
+                                          'question_type' => $data->question->question_type));
+        }
+        echo json_encode($data);
+    }
     public function addQuestionGroup() {
         $data = $this->input->json();
+        $order = $this->questions->getTheLastOrder();
+        $data->question->order = (int)$order->order_number + 1;
         $question_id = $this->questions->insert($data->question);
         $subQuestion = array();
 
@@ -157,7 +190,13 @@ Class Questions extends CI_Controller {
     }
     public function getQuestion() {
         $questions = $this->questions->getQuestionOrder();
-        echo json_encode(array('questions' => $questions));
+        $this->load->model('question_pagination_model','question_pagination');
+        $data = $this->question_pagination->get_all();
+        $pagination = array();
+        foreach ($data as $key => $row){
+            $pagination[$row->order_id] = $row->pagination;
+        }
+        echo json_encode(array('questions' => $questions,'pagination' => $pagination));
     }
 
 }

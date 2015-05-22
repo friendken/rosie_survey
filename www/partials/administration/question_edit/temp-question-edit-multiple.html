@@ -55,9 +55,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-en">
-                                        <div class="type-question">
-                                            <div ng-repeat="(key,item) in question.question_detail.en">
-                                                <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                        <div ng-switch="typeQuestion">
+                                            <div class="type-question" ng-switch-when="3">
+                                                <div ng-repeat="(key,item) in question.question_detail.en">
+                                                    <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
+                                            </div>
+                                            <div class="type-question" ng-switch-when="5">
+                                                <div ng-repeat="(key,item) in question.question_detail.en">
+                                                    <input type="checkbox"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -78,9 +85,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-vn">
-                                        <div class="type-question">
-                                            <div ng-repeat="(key,item) in question.question_detail.vn">
-                                                <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                        <div ng-switch="typeQuestion">
+                                            <div class="type-question" ng-switch-when="3">
+                                                <div ng-repeat="(key,item) in question.question_detail.vn">
+                                                    <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
+                                            </div>
+                                            <div class="type-question" ng-switch-when="5">
+                                                <div ng-repeat="(key,item) in question.question_detail.vn">
+                                                    <input type="checkbox"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,9 +115,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-ch">
-                                        <div class="type-question">
-                                            <div ng-repeat="(key,item) in question.question_detail.ch">
-                                                <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                        <div ng-switch="typeQuestion">
+                                            <div class="type-question" ng-switch-when="3">
+                                                <div ng-repeat="(key,item) in question.question_detail.ch">
+                                                    <input type="radio"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
+                                            </div>
+                                            <div class="type-question" ng-switch-when="5">
+                                                <div ng-repeat="(key,item) in question.question_detail.ch">
+                                                    <input type="checkbox"/><input type="text" data-question-detail-id="{{item.question_detail_id}}" class="question-answer" placeholder="type here" style="border: 0;width: 500px;" value="{{item.value}}"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

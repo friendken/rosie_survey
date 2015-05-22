@@ -3,8 +3,9 @@
         <div class="span4 column sortable">
             <div ng-repeat="(key,item) in questions" class="well order-question {{item.question_type | colorBox}}" data-question-id="{{item.id}}">
                 <div class="well-header">
-                    <h5>Question {{item.id}}</h5>
+                    <h5>Question {{key + 1}}</h5>
                     <ul>
+                        <li class="color_pick"><a ng-click="setPagination($event)" class="pagination_number" data-question-id="{{item.id}}" style="color: white;font-size: 20px" title="preview question" data-number="{{item.order | number_order:pagination}}" ng-bind-html="item.order | pagination:pagination"></a></li>
                         <li class="color_pick"><a href="#question-preview/{{item.id}}" title="preview question"><i class="icon-th"></i></a></li>
                     </ul>
                 </div>

@@ -1,0 +1,342 @@
+@media (min-width: 1200px) {
+    .container {
+        width: 1000px;
+
+    }
+}
+
+.main {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    background: url('/www/img/survey/bg-home.jpg');
+    background-position: top center;
+    padding-top: 300px;
+    background-repeat: no-repeat;
+
+}
+
+.main > section {
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+}
+
+#header {
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+.navbar-default {
+    background: #00467f;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar {
+    min-height: 38px
+}
+
+#menu a {
+    font-size: 14px;
+    font-family: Arial;
+    text-transform: uppercase;
+    color: #96c0e3;
+    background: #00467f;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 10px;
+}
+
+#menu a:hover, #menu li.active, #menu li.active a {
+    color: #fff;
+    background: #e51937;
+}
+
+.full-screen {
+    background: #00467f
+}
+
+.author {
+    font-size: 20px;
+    color: #00467f;
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.school {
+    color: #00467f;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    width: 50%;
+    border-bottom: 1px solid #f7f9fb;
+    border-top: 1px solid #f7f9fb;
+    padding: 10px 0px;
+}
+
+.mail {
+    color: #444e56;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%
+}
+
+.phone {
+    color: #444e56;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%
+}
+
+.location {
+    color: #444e56;
+    font-size: 14px;
+}
+
+.title {
+    font-size: 26px;
+    color: #00467f;
+    font-weight: 100;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c3c8ce
+}
+
+.nav-tabs > li {
+    margin-bottom: 0px;
+    border: 1px solid #ddd;
+}
+
+.nav-tabs > li:nth-child(2) {
+    border-left: 0px;
+    border-right: 0px
+}
+
+.nav-tabs > li > a {
+    margin-right: 0px;
+    border-radius: 0px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: none;
+    color: #fff;
+    background-color: #00467f;
+
+}
+
+.nav-tabs > li > a:hover {
+    background-color: #00467f;
+    color: #fff
+}
+
+.nav-tabs {
+    border: none;
+    position: relative;
+    top: 2px;
+}
+
+.nav-tabs li {
+    padding: 3px;
+    border-bottom: none;
+}
+
+.nav-tabs li.active {
+    border-bottom: 1px solid #fff;
+}
+
+.tab-content {
+    padding: 15px;
+    border: 1px solid #ddd
+}
+
+div[role="tabpanel"] {
+    margin-top: 20px
+}
+
+#footer a {
+    font-size: 12px;
+    color: #c3c8ce;
+    text-transform: uppercase;
+    padding-right: 10px;
+    border-right: 1px solid;
+    padding-left: 10px;
+}
+
+#footer .menu-footer {
+    padding-top: 10px;
+    border-top: 1px solid #c3c8ce;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#footer span {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #c3c8ce;
+}
+
+.btn-custom {
+    padding: 10px 30px;
+    display: inline-block;
+    color: #fff;
+    background: #00467f;
+    margin-top: 10px;
+}
+
+#des-survey span {
+    display: inline-block;
+    width: 100%;
+
+}
+
+.contact .phone {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c3c8ce;
+}
+
+.location i {
+    display: block;
+    float: left;
+    min-height: 70px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+
+.mail i {
+    position: relative;
+    top: 3px;
+    display: block;
+    float: left;
+    min-height: 20px;
+    margin-right: 5px;
+}
+
+#form-contact {
+    margin-bottom: 30px
+}
+
+#form-contact h4 {
+    font-size: 18px;
+    color: #00467f;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c3c8ce;
+}
+
+#form-contact label {
+    font-size: 13px;
+    color: #444e56;
+}
+
+#form-contact input, #form-contact textarea {
+    background: #f8f8f8;
+    border: 1px solid #D7D4D4;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+#form-contact button[type='submit'] {
+    background: #00467f;
+    border-radius: 0px;
+    box-shadow: none;
+    border: 0px;
+    color: #fff;
+    padding: 7px 15px;
+}
+
+#form-contact .clear {
+    background: #bccbd8;
+    border-radius: 0px;
+    box-shadow: none;
+    border: 0px;
+    color: #fff;
+    padding: 7px 15px;
+}
+
+#form-contact textarea {
+    min-height: 150px;
+}
+
+.social {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.social li.icon {
+    width: 30px;
+    height: 28px;
+    display: inline-block;
+    background: url('/www/img/survey/social.jpg');
+    background-repeat: no-repeat;
+
+}
+
+.social li.icon a {
+    display: block;
+    text-indent: -999px
+}
+
+.social li.in {
+    background-position: -18px -5px;
+
+}
+
+.social li.face {
+    background-position: -59px -5px;
+
+}
+
+.social li.twiter {
+    background-position: -99px -5px
+
+}
+
+#title-page {
+    position: absolute;
+    top: 35px;
+    background-color: transparent;
+    left: 60px;
+
+}
+
+#title-page h3 span {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 100;
+
+}
+
+#title-page h3 {
+    font-weight: 300;
+    font-size: 45px;
+    color: #fff;
+}
+
+.fix-survey {
+    position: fixed;
+    top: 50%;
+    z-index: 9;
+    left: -38px;
+}
+
+.fix-survey .btn-custom {
+    padding: 9px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+.btn-custom:hover {
+    background: #e51937;
+    color: #fff;
+    text-decoration: none;
+}

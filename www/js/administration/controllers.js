@@ -59,7 +59,13 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 $scope.groupQuestion = 0
             });
             $scope.addMoreAnswer = function(){
-                jQuery('.type-question').append('<div><input type="radio"/><input placeholder="type here" class="question-answer" type="text" style="border: 0;width: 500px;"/></div>')
+                var type_answer = ''
+                if($scope.typeQuestion == 3)
+                    type_answer = 'radio'
+                else
+                    type_answer = 'checkbox'
+
+                jQuery('.type-question').children('div').append('<div><input type="' + type_answer + '"/><input placeholder="type here" class="question-answer" type="text" style="border: 0;width: 500px;"/></div>')
                 jQuery('.type-question input:last-child').focus()
             }
             
@@ -90,7 +96,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                             data['answer'][language] = new Array(this.value);
                     });
                 });
-                
+
                 $http.post(config.base + 'administration/questions/addQuestionMultiple',data)
                         .success(function(result){
                             console.log(result);
@@ -183,7 +189,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 data['question']['question_type'] = $scope.typeQuestion;
                 data['question']['question_group_id'] = $scope.groupQuestion;
                 
-                $http.post(config.base + 'administration/questions/addQuestionSingle',data)
+                $http.post(config.base + 'administration/questions/addQuestionSpecial',data)
                         .success(function(result){
                             console.log(result);
                             alert('Well done! You successfully saved this...')
@@ -196,6 +202,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
             $scope.init = function(){
                 $http.get(config.base + 'administration/questions/getQuestion').success(function(data){
                     $scope.questions = data.questions;
+                    $scope.pagination = data.pagination
                     $timeout(function(){
                         jQuery("#sortable_boxes").sortable({
                             connectWith: ".well",
@@ -213,6 +220,41 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                 });
             };
             $scope.init();
+            $scope.setPagination = function($event){
+                
+                var number = 0;
+                var index = jQuery('.pagination_number').index($event.currentTarget)
+                var order = new Array();
+                jQuery('.pagination_number').each(function(key){
+                    if(key <= index){
+                        if(jQuery(this).data('number')){
+                            number = jQuery(this).data('number');
+                        }
+                    }else{
+                        jQuery(this).html('<i class="icon-inbox"></i>');
+                        jQuery(this).removeData('number');
+                    }
+                    
+                })
+                
+                jQuery($event.currentTarget).html(number + 1)
+                jQuery($event.currentTarget).data('number',number + 1)
+                jQuery($event.currentTarget).css('color','white')
+                jQuery($event.currentTarget).css('font-size','20px')
+                
+                jQuery('.pagination_number').each(function(key){
+                    if(jQuery(this).data('number')){
+                        number = jQuery(this).data('number');
+                        order.push({pagination: number, order_id: key + 1})
+                    }
+                })
+                
+                //update order question
+                $http.post(config.base + 'administration/questions/updatePagination',order).success(function(){
+                    
+                })
+                
+            }
             $scope.undateOrder = function(el){
                 var order = new Array(),
                     i = 1;
@@ -220,7 +262,11 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                     order.push({order: i,questionId: jQuery(this).data('question-id')})
                     i++
                 })
-            
+                jQuery('.pagination_number').each(function(key){
+                    jQuery(this).html('<i class="icon-inbox"></i>');
+                    jQuery(this).removeData('number');
+                })
+                
                 $http.post(config.base + 'administration/questions/updateOrder',order).success(function(data){
                     console.log(data)
                 })
@@ -250,6 +296,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
                         $scope.question_type_name = 'group'
                         break;
                     case "3":
+                    case "5":
                         $scope.question_type_name = 'multiple'
                         break;
                     default:
@@ -309,7 +356,7 @@ angular.module('administration.controllers', ['ui.bootstrap'])
     .controller('questionEditMultipleController', 
                 ['$scope', '$timeout', '$http','initCkeditor', 'questionGroup', '$stateParams',
         function ($scope, $timeout, $http,initCkeditor, questionGroup, $stateParams) {
-            $scope.typeQuestion = '3';
+
             $scope.initSelectBox = function (question_group_id){
                 questionGroup.getGroup(function(data){
                 $scope.groups = data.question_group
@@ -322,6 +369,8 @@ angular.module('administration.controllers', ['ui.bootstrap'])
             }
             questionGroup.getQuestionDetail($stateParams.question_id,function(data){
                 $scope.question = data.question
+                $scope.typeQuestion = data.question.question_type;
+
                 initCkeditor.init();
                 $scope.initSelectBox(data.question.question_group_id)
             })

@@ -47,6 +47,12 @@
                             <h2>Create Multiple Choice</h2>
                             <form>
                                 <div class="form_row">
+                                    <select class="selectpicker" ng-model="typeQuestion" title='select type'>
+                                        <option value="3"> Radio</option>
+                                        <option value="5"> Check box</option>
+                                    </select>
+                                </div>
+                                <div class="form_row">
                                     <label class="quick-actions field_name" style="width: 40px">
                                         <ul>
                                             <li>
@@ -55,9 +61,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-en">
-                                        <div class="type-question">
-                                            <div>
-                                                <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                        <div class="type-question" ng-switch="typeQuestion">
+                                            <div ng-switch-when="5">
+                                                <div>
+                                                    <input type="checkbox"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-default="3">
+                                                <div>
+                                                    <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -70,6 +83,12 @@
                             <h2>Tạo câu trắc nghiệm</h2>
                             <form>
                                 <div class="form_row">
+                                    <select class="selectpicker" ng-model="typeQuestion" title='select type'>
+                                        <option value="3"> Radio</option>
+                                        <option value="5"> Check box</option>
+                                    </select>
+                                </div>
+                                <div class="form_row">
                                     <label class="quick-actions field_name" style="width: 40px">
                                         <ul>
                                             <li>
@@ -78,9 +97,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-vn">
-                                        <div class="type-question">
-                                            <div>
-                                                <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                        <div class="type-question" ng-switch="typeQuestion">
+                                            <div ng-switch-when="5">
+                                                <div>
+                                                    <input type="checkbox"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-default="3">
+                                                <div>
+                                                    <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -93,6 +119,12 @@
                             <h2>Create multiple choice</h2>
                             <form>
                                 <div class="form_row">
+                                    <select class="selectpicker" ng-model="typeQuestion" title='select type'>
+                                        <option value="3"> Radio</option>
+                                        <option value="5"> Check box</option>
+                                    </select>
+                                </div>
+                                <div class="form_row">
                                     <label class="quick-actions field_name" style="width: 40px">
                                         <ul>
                                             <li>
@@ -101,9 +133,16 @@
                                         </ul>
                                     </label>
                                     <div class="field answer-ch">
-                                        <div class="type-question">
-                                            <div>
-                                                <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                        <div class="type-question" ng-switch="typeQuestion">
+                                            <div ng-switch-when="5">
+                                                <div>
+                                                    <input type="checkbox"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-default="3">
+                                                <div>
+                                                    <input type="radio"/><input type="text" class="question-answer" placeholder="type here" style="border: 0;width: 500px;"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

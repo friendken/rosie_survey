@@ -1,4 +1,4 @@
-angular.module('administration.filters',[])
+angular.module('survey.filters',[])
     .filter('colorBox',function(){
         return function(type){
             switch(type){

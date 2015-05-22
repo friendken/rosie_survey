@@ -1,0 +1,17 @@
+{
+  "en": {
+    "menu": ["researcher's profile","research interest","contact"],
+    "c": "d",
+    "e": "f"
+  },
+  "vn": {
+    "menu": ["Người nghiên cứu","khảo sát","liên hệ"],
+    "c": "d",
+    "e": "f"
+  },
+  "ch": {
+    "menu": ["研究人员的个人资料","研究兴趣","联系"],
+    "c": "d",
+    "e": "f"
+  }
+}

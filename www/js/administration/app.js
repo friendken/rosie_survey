@@ -1,6 +1,7 @@
 var administration = angular.module('administration', [
     'ui.router',
     'ui.bootstrap',
+    
     'administration.services',
     'administration.filters',
     'administration.controllers'

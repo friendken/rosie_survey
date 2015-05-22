@@ -46,6 +46,11 @@
                                         <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
                                     </div>
                                 </div>
+                                <div ng-switch-when="5">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.en">
+                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
                                 <div ng-switch-when="2">
                                     <div style="padding: 5px">
                                         <ol>
@@ -63,6 +68,11 @@
                                         <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
                                     </div>
                                 </div>
+                                <div ng-switch-when="5">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.vn">
+                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
                                 <div ng-switch-when="2">
                                     <div style="padding: 5px">
                                         <ol>
@@ -78,6 +88,11 @@
                                 <div ng-switch-when="3">
                                     <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.ch">
                                         <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="5">
+                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.ch">
+                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
                                     </div>
                                 </div>
                                 <div ng-switch-when="2">

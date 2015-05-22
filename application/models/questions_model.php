@@ -10,5 +10,10 @@ Class Questions_model extends MY_model{
                         ->get($this->table_name)
                         ->result();
     }
+    public function getTheLastOrder(){
+        return $this->db->select_max('order','order_number')
+                        ->get($this->table_name)
+                        ->row();
+    }
 }
 ?>

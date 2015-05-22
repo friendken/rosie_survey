@@ -38,7 +38,7 @@
         <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCL6XtCGot7S7cfxnO6tRfeZx9kLQQRMtA&amp;sensor=false"></script>-->
         <script src="www/js/library/jquery.sparkline.min.js"></script>
         <script src="www/js/library/chosen.jquery.min.js"></script>
-        <!--<script src="www/js/library/jquery.easytabs.js"></script>-->
+        
         <script src="www/js/library/flot/excanvas.min.js"></script>
         <script src="www/js/library/flot/jquery.flot.js"></script>
         <script src="www/js/library/flot/jquery.flot.pie.js"></script>
@@ -66,6 +66,7 @@
         <script src="www/third_party/ckeditor/ckeditor.js"></script>
 
         <script src="www/js/angular/angular.js"></script>
+        
         <script src="www/js/angular-route/angular-ui-router.js"></script>
         <script src="www/js/administration/app.js"></script>
         <script src="www/js/administration/services.js"></script>
@@ -191,7 +192,7 @@
                         <a href="#" class="btn btn-block blue align_left"><span>Messages center</span></a>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="#"><img src="www/demo/avatar_06.png" alt="User image" class="avatar"> Bernad Delic <i class="icon-angle-down"></i></a>
+                <li class="dropdown"><a href="#"><img src="www/demo/avatar_06.png" alt="User image" class="avatar"> Rosie Cao <i class="icon-angle-down"></i></a>
                     <ul>
                         <li><a href="#"><i class="icon-cog"></i> User options</a></li>
                         <li><a href="#"><i class="icon-inbox"></i> Messages</a></li>
