@@ -1,0 +1,46 @@
+<div ng-app="administration" ng-controller="questionAllController">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="well grey">
+                <div class="well-header">
+                    <h5>Questions table</h5>
+                    <ul>
+                        <li class="color_pick"><a href="#"><i class="icon-th"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="well-content">
+                    <div class="table_options top_options">
+                        <div class="pull-left">
+                            <span class="inline">Search:</span>
+                            <input type="text" ng-model="search">
+                        </div>
+                    </div>
+                    <table class="table multimedia table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Questions</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="(key,item) in questions | filter:search">
+                            <td>{{ item.id }}</td>
+                            <td><span class="label {{item.question_type | colorBox}}">{{ item.question_type | labelType}}</span></td>
+                            <td>{{item.en | limitTo: 115}}{{item.en.length > 115 ? '...' : ''}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn" href="#question-preview/{{item.id}}"><i class="icon-arrow-right"></i></a>
+                                    <a class="btn" ng-click="deleteQuestion()"><i class="icon-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

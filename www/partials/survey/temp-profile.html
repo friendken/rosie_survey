@@ -1,12 +1,17 @@
-<div ng-app="survey" ng-controller="surveyController">
+<div ng-app="survey" ng-controller="profileController">
     <article class="col-md-12">
-        <h3 class="title col-md-12">Researcher’s Profile</h3>
+        <div ng-switch="profileLanguage">
+            <h3 ng-switch-when="en" class="title col-md-12">Researcher’s Profile</h3>
+            <h3 ng-switch-when="vn" class="title col-md-12">Thông tin nhà nghiên cứu</h3>
+            <h3 ng-switch-when="ch" class="title col-md-12">Researcher’s Profile</h3>
+        </div>
+
     </article>
     <section class="col-md-3">
         <img class="img-responsive" src="www/img/survey/author.jpg" alt="Cao Duong Ngan">
     </section>
     <section class="col-md-9">
-        <h5 class="author">Cao D. Ngan ( Rosie )</h5>
+        <h5 class="author">Ngan D. Cao ( Rosie )</h5>
         <span class="school">PhD Candidate in Finance & Economics <br> Newcastle University</span>
         <a href="mailto:n.d.cao1@newcastle.ac.uk" class="mail"><i class="glyphicon glyphicon-envelope"></i>
             n.d.cao1@newcastle.ac.uk</a>
@@ -14,74 +19,241 @@
                       5 Barrack Road ( Room 6.22 ) <br> 
                       Newcastle Upon Tyne <br> 
                       NE1 4SE</span>
-        <a href="#" class="phone"><i class="glyphicon glyphicon-earphone"></i> (+44) 1912081601</a>
+        <a href="#" class="phone"><i class="glyphicon glyphicon-earphone"></i> (+44) 1912081601<span
+                style="display: block; margin-left: 18px">(+44) 1912081600</span></a>
 
 
-        <div role="tabpanel">
+        <div class="tabbable responsive" role="tabpanel">
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#profile" aria-controls="Profile" role="tab" data-toggle="tab">Profile</a></li>
-                <li role="presentation"><a href="#Research" aria-controls="Research" role="tab" data-toggle="tab">Research</a></li>
-                <li role="presentation"><a href="#Supervisors" aria-controls="Supervisors" role="tab" data-toggle="tab">Supervisor team</a></li>
+                <li role="presentation" class="active"><a href="#profile" aria-controls="Profile" role="tab"
+                                                          data-toggle="tab">Profile</a></li>
+                <li role="presentation"><a href="#Research" aria-controls="Research" role="tab" data-toggle="tab">Research
+                    Interests</a></li>
+                <li role="presentation"><a href="#Supervisors" aria-controls="Supervisors" role="tab" data-toggle="tab">Supervisor
+                    team</a></li>
 
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="profile">
-                    Profile
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                <div role="tabpanel" class="tab-pane active" id="profile" ng-switch="profileLanguage">
+                    <div ng-switch-when="en">
+                        <h4 style='font-weight: bold'>EDUCATION AND QUALIFICATIONS:</h4>
+                        <ul>
+                            <li>2014 to date: Business School, University of Newcastle, Newcastle, England
+                                <br><span style='font-weight: bold'>PhD in Finance and Economics</span></li>
+                            <br>
+                            <li>2013-2014: Business School, University of Leeds, West Yorkshire, England <br><span
+                                    style='font-weight: bold'>MSc in Finance and Investment</span></li>
+                        </ul>
+
+                        <p style='font-style: italic'>Obtained result: 78.3 (Distinction)</p>
+                        <ul>
+                            <li>2010-2013: Business School, University of Leeds, West Yorkshire, England <br><span
+                                    style='font-weight: bold'>BSc in Accounting and Finance</span></li>
+
+                        </ul>
+
+                        <p style='font-style: italic'>Obtained result: 77.4 (Honours Class I)</p>
+                        <ul>
+                            <li>2008-2010: Castle College Nottingham, Nottingham, East Midland, England<br>
+                                <span style='font-weight: bold'>4 A Levels:</span> Mathematics A*, Further Mathematics
+                                A*
+                                Accounting A, Economics A
+                            </li>
+                        </ul>
+                        <br>
+                        <h4 style='font-weight: bold'>SCHOLARSHIPS & PRIZES</h4>
+                        <ul class="schoolarship">
+                            <li>2015: 2-years ESRC North East DTC studentship.</li>
+                            <li>2014: 3-years PhD studentship, the Newcastle University Business School.</li>
+                            <li>2013: Funding for 1-year Master course, the Leeds University Business School.</li>
+                            <li>2013: The Gerald Veale Prize for the best student in BSc Accounting and Finance.</li>
+                            <li>2012: The WYSCA Prize for the best student in the second year of BSc Accounting &
+                                Finance.
+                            </li>
+                            <li>2012: The Accounting and Finance Prize for top 10 students in Accounting and Finance.
+                            </li>
+                            <li>2012: The Dean’s Prize for the best outright performance in year 2 Accounting
+                                Programmes.
+                            </li>
+                            <li>2011: The Dean’s Prize for the best outright performance in year 1 Accounting
+                                Programmes.
+                            </li>
+                            <li>2011: Community Care Award, Word of Grace Ministries (UK).</li>
+                            <li>2010: International Undergraduate 3-year Scholarship, University of Leeds (UK).</li>
+                            <li>2008: International College 2-year Scholarship, Castle College Nottingham (UK).</li>
+                        </ul>
+                    </div>
+                    <div ng-switch-when="vn">
+                        <h4 style='font-weight: bold'>GIÁO DỤC VÀ BẰNG CẤP:</h4>
+                        <ul>
+                            <li>2014 đến nay : Trường Kinh doanh, Đại học Newcastle, Thành phố Newcastle Upon Tyne, Tyne and Wear, Anh Quốc<br>
+                            <span style='font-weight: bold'>Tiến sĩ về kinh tế tài chính</span></li>
+                            <br>
+                            <li>2013-2014: Trường Kinh doanh, Đại học Leeds, Thành Phố Leeds, Phía Tây vùng Yorkshire, Anh Quốc<br>
+                            <span style='font-weight: bold'>Thạc sĩ khoa học về Đầu tư và Tài chính</span></li>
+                        </ul>
+
+                        <p style='font-style: italic'>Kết quả đạt được: 78.3 - Xuất sắc</p>
+                        <ul>
+                            <li>2010-2013: Trường Kinh Doanh, Đai học Leeds, Thành Phố Leeds, Phía Tây vùng Yorkshire, Anh Quốc<br>
+                                <span style='font-weight: bold'>Cử nhân khoa học về Tài Chính và Kế Toán</span></li>
+
+                        </ul>
+
+                        <p style='font-style: italic'>(kết quả đạt được : 77.4 - Xuất sắc)</p>
+                        <ul>
+                            <li>2008-2010: Trường Cao Đẳng Nottingham Castle, Thành Phố Nottingham, Phía Đông vùng Midland, Anh Quốc<br>
+                                <span style='font-weight: bold'>4 A: </span> Toán A*, Toán cao cấp A*, Kế toán A, Kinh tế A
+                            </li>
+                        </ul>
+                        <br>
+                        <h4 style='font-weight: bold'>HỌC BỔNG VÀ GIẢI THƯỞNG</h4>
+                        <ul class="schoolarship">
+                            <li>2015: Học bổng khoá học tiến sĩ - 2 năm, Hội Đồng nghiên cứu Xã hội và Kinh Tế vùng Đông Bắc nước Anh.</li>
+                            <li>2014: Học bổng tiến sĩ - 3 năm, trường Kinh Doanh - Đại Học Newcastle</li>
+                            <li>2013: Học bổng 1 năm cho khóa học thạc sĩ, trường Kinh Doanh - Đại Học Leeds</li>
+                            <li>2013: Giải thưởng Gerald Veale cho học sinh xuất sắc nhất, Cử nhân khoa học về Kế Toán và Tài Chính</li>
+                            <li>2012: Giải thưởng WSYCA cho sinh viên xuất sắc nhất năm 2, Cử nhân khoa học về Kế Toán và Tài Chính</li>
+                            <li>2012: Giải thưởng Kế Toán và Tài Chính Cho 10 học sinh đứng đầu trong ngành Kế Toán và Tài Chính</li>
+                            <li>2012: Phần Thưởng của Trưởng Khoa (The Dean) cho kết quả xuất sắc nhất của sinh viên năm 2 Ngành Kế Toán</li>
+                            <li>2011: Phần Thưởng của Trưởng Khoa (The Dean) cho kết quả xuất sắc nhất của sinh viên năm 1 Ngành Kế Toán</li>
+                            <li>2011: Giải Thưởng Chăm Sóc sức khỏe cộng đồng, Word of Grace Ministries (Anh Quốc)</li>
+                            <li>2010: Học bổng 3 năm cho chương trình đại học quốc tế - Đại học Leeds</li>
+                            <li>2008: Học bổng 2 năm cho chương trình A-Level quốc tế - Trường Castle, Nottingham</li>
+                        </ul>
+                    </div>
+                    <div ng-switch-when="ch">đây là tiếng tung của</div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="Research">
-                    Research
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                <div role="tabpanel" class="tab-pane" id="Research" ng-switch="profileLanguage">
+                    <div ng-switch-when="en">
+                        <p><span style="font-style: italic; text-decoration: underline; font-weight: bold">Research field:</span>
+                            Behavioural Finance and Economics</p>
+
+                        <p>Currently working towards a unifying framework for the examination of cultural and linguistic
+                            differences in individuals’ financial risk tolerance and investment behaviour across the
+                            life course, drawing on and uniting contributions from a range of diverse fields, including
+                            finance, economics, psychology, sociology, and anthropology.</p>
+
+                        <p style="font-style: italic; text-decoration: underline; font-weight: bold">Research-related
+                            Activities:</p>
+                        <ul>
+                            <li>2015: Member of the First Year Postgraduate Research Conference organizing committee.
+                            </li>
+                            <li>2015: Presentation at the First Year Postgraduate Research Conference .</li>
+                            <li>2015: Attended the Royal Economic Society Easter School at Brasenose College, Oxford.
+                            </li>
+                            <li>2015: Presentation at the Second Asia-Pacific Conference on Global Business, Economics,
+                                Finance and Social Sciences.
+                            </li>
+                        </ul>
+                        <p style="margin-left: 20px"><b>Venue:</b> Duy Tan University, Da Nang City, Vietnam<br>
+                            <b>Conference paper:</b> “The Day-of-the-week Trading Strategy for Foreign Investors in
+                            ASEAN Stock Exchanges in Economic and Financial Turbulence."</p>
+
+                    </div>
+                    <div ng-switch-when="vn">
+                        <p><span style="font-style: italic; text-decoration: underline; font-weight: bold">Lĩnh vực nghiên cứu: </span>
+                            Kinh tế học và tài chính hành vi</p>
+
+                        <p>Hiện đang nghiên cứu hướng đến một khung khái niệm thống nhất khảo thí về sự khác biệt ngôn ngữ và văn hóa trong hành vi đầu tư và khả năng chịu rủi ro tài chính cá nhân trong cuộc sống, thu thập và kết hợp những đóng góp từ nhiều lĩnh vực đa dạng như: tài chính, kinh tế học, tâm lý học, xã hội học, và nhân chủng học.</p>
+
+                        <p style="font-style: italic; text-decoration: underline; font-weight: bold">Những hoạt động liên quan nghiên cứu:</p>
+                        <ul>
+                            <li>2015: Thành viên của Ủy Ban Tổ Chức Hội Thảo cho các nghiên cứu sinh năm nhất</li>
+                            <li>2015: Thuyết trình ở Hội Nghị Nghiên cứu sau Đại Học năm đầu tiên</li>
+                            <li>2015: Tham dự lớp đào tạo nghiên cứu Xã Hội Kinh Tế Hoàng Gia, Trường Brasenose, Đại Học Oxford, Anh Quốc.</li>
+                            <li>2015: Thuyết trình ở Hội Thảo Quốc Tế Châu Á-Thái Bình Dương lần thứ 2 về Kinh Doanh toàn cầu, Kinh Tế, Tài Chính và Khoa học Xã hội.
+                            </li>
+                        </ul>
+                        <p style="margin-left: 20px"><b>Địa Điểm: </b>Đại học Duy Tân, Thành Phố Đà Nẵng, Việt Nam<br>
+                            <b>Bài nghiên cứu thuyết trình tại hội thảo:</b> “The Day-of-the-week Trading Strategy for Foreign Investors in ASEAN Stock Exchanges in Economic and Financial Turbulence."</p>
+                    </div>
+                    <div ng-switch-when="ch"></div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="Supervisors">
-                    Supervisors
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                <div role="tabpanel" class="tab-pane" id="Supervisors" ng-switch="profileLanguage">
+                    <div ng-switch-when="en">
+                        <div style="position: relative; padding-bottom: 20px">
+                            <h4>Professor Darren Duxbury</h4>
+                            <h5>Chair in Finance</h5>
+                            <img class="hidden-lg hidden-md hidden-sm" style="width: 100%;margin: 10px 0px;"
+                                 src="http://sitemanager.ncl.ac.uk/images/images/nubs_264568.jpg">
+                            <ul>
+                                <li><span class="bold">Email:</span><a href="mailto:darren.duxbury@ncl.ac.uk">&nbsp;
+                                    darren.duxbury@ncl.ac.uk</a></li>
+                                <li><span class="bold">Telephone:</span> +44 (0)191 2081517</li>
+                                <li><span class="bold">Address:</span> Newcastle University Business School <span
+                                        style="display: block">5 Barrack Road Newcastle upon Tyne NE1 4SE</span></li>
+                                <li><span class="bold">Website:</span><a
+                                        href="http://www.ncl.ac.uk/nubs/staff/profile/darren.duxbury">&nbsp;
+                                    http://www.ncl.ac.uk/nubs/staff/profile/darren.duxbury</a>
+                                <span style="display: block">Professor Duxbury is an expert in the areas of experimental and behavioral finance and the founder and Research Group Head of Behavioural Research in Finance (BRiF), a newly created research group that aims to build and consolidate the research expertise at Newcastle University Business School in the study of financial behaviour, from both an empirical and experimental perspective: <a
+                                        href="http://www.ncl.ac.uk/nubs/research/centres/brif/">http://www.ncl.ac.uk/nubs/research/centres/brif/</a></span>
+                                </li>
+                            </ul>
+                            <img class="hidden-sm hidden-xs darren_professor"
+                                 src="http://sitemanager.ncl.ac.uk/images/images/nubs_264568.jpg">
+                        </div>
+                        <div style="position: relative">
+                            <h4>Professor Susan Chilton</h4>
+                            <h5>Professor of Economics</h5>
+                            <ul>
+                                <li><span class="bold">Email:</span> <a href="mailto:susan.chilton@ncl.ac.uk">susan.chilton@ncl.ac.uk</a>
+                                </li>
+                                <li><span class="bold">Telephone:</span> +44(0) 191 208 1641</li>
+                                <li><span class="bold">Website:</span><a
+                                        href="http://www.ncl.ac.uk/nubs/staff/profile/susan.chilton#tab_research">
+                                    http://www.ncl.ac.uk/nubs/staff/profile/susan.chilton#tab_research </a>
+                                <span style="display: block">
+                                    Professor Chilton focuses her core research in applied welfare economics, centering on the use of surveys and experimental situations to understand how individuals make decisions affecting their economic welfare. The work is based in environmental economics, safety economics and health economics.
+                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div ng-switch-when="vn">
+                        <div style="position: relative; padding-bottom: 20px">
+                            <h4>Professor Darren Duxbury</h4>
+                            <h5>Chair in Finance</h5>
+                            <img class="hidden-lg hidden-md hidden-sm" style="width: 100%;margin: 10px 0px;"
+                                 src="http://sitemanager.ncl.ac.uk/images/images/nubs_264568.jpg">
+                            <ul>
+                                <li><span class="bold">Email:</span><a href="mailto:darren.duxbury@ncl.ac.uk">&nbsp;
+                                    darren.duxbury@ncl.ac.uk</a></li>
+                                <li><span class="bold">Telephone:</span> +44 (0)191 2081517</li>
+                                <li><span class="bold">Address:</span> Newcastle University Business School <span
+                                        style="display: block">5 Barrack Road Newcastle upon Tyne NE1 4SE</span></li>
+                                <li><span class="bold">Website:</span><a
+                                        href="http://www.ncl.ac.uk/nubs/staff/profile/darren.duxbury">&nbsp;
+                                    http://www.ncl.ac.uk/nubs/staff/profile/darren.duxbury</a>
+                                <span style="display: block">Giáo sư Duxbury là một chuyên gia trong những lĩnh vực tài chính hành vi và tài chính thực nghiệm, đồng thời cũng là nhà sáng lập kiêm chủ nhiệm Nhóm nghiên cứu về hành vi trong lĩnh vực tài chính (BriF), đây là nhóm nghiên cứu mới thành lập tại trường kinh doanh, đại học Newcastle nhằm mục đích xây dựng và thống nhất chuyên môn nghiên cứu trong lĩnh vực này, trên cả khía cạnh lý thuyết lẫn ứng dụng thực tế.
+                                    <a href="http://www.ncl.ac.uk/nubs/research/centres/brif/">http://www.ncl.ac.uk/nubs/research/centres/brif/</a></span>
+                                </li>
+                            </ul>
+                            <img class="hidden-sm hidden-xs darren_professor"
+                                 src="http://sitemanager.ncl.ac.uk/images/images/nubs_264568.jpg">
+                        </div>
+                        <div style="position: relative">
+                            <h4>Professor Susan Chilton</h4>
+                            <h5>Professor of Economics</h5>
+                            <ul>
+                                <li><span class="bold">Email:</span> <a href="mailto:susan.chilton@ncl.ac.uk">susan.chilton@ncl.ac.uk</a>
+                                </li>
+                                <li><span class="bold">Telephone:</span> +44(0) 191 208 1641</li>
+                                <li><span class="bold">Website:</span><a
+                                        href="http://www.ncl.ac.uk/nubs/staff/profile/susan.chilton#tab_research">
+                                    http://www.ncl.ac.uk/nubs/staff/profile/susan.chilton#tab_research </a>
+                                <span style="display: block">
+                                    Giáo sư Chilton tập trung nghiên cứu chính yếu vào ứng dụng kinh tế học phúc lợi, tập trung sử dụng các kết quả khảo sát và tình huống thực nghiệm để thấu hiểu làm thế nào mà mỗi cá nhân đưa ra quyết định ảnh hưởng đến phúc lợi kinh tế của họ. Công việc này được dựa trên kinh tế học môi trường, kinh tế học an toàn và kinh tế học sức khỏe.
+                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div ng-switch-when="ch"></div>
                 </div>
             </div>
         </div>

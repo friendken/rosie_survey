@@ -1,11 +1,93 @@
-<div ng-app="survey" ng-controller="contactController">
+<div ng-app="survey" ng-controller="surveyController">
     <article class="col-md-12">
         <h3 class="title col-md-12">Research Survey</h3>
     </article>
-    <article id="des-survey" class="col-md-12">
-              <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+    <article id="des-survey" class="col-md-12" ng-switch="surveyLanguage">
+        <div ng-switch-when="en">
+            <div style="text-align: center; padding-bottom: 15px"><h3 style="color: #23527c">Research Information</h3></div>
+            <p class="title-survey">Research project:</p>
+            <p style="margin: 0px 0px 20px 0px">I would like to invite you to participate in this survey as part of my doctoral research project on <span style="text-decoration: underline; font-style: italic"> Effects of cultural ethos and psychological predispositions on financial risk tolerance and investment behaviour across the life span </span> ways of achieving a conceptual model for Behavioural Finance and Economics. It is entirely up to you whether you participate but your responses would be valued. This sheet provides you with information about why the research is being done, by whom and what is involved. This background information is to ensure that you are able to make an informed decision about whether or not to take part in the survey. This project has been approved by the Ethical Panel of the Newcastle University on the 6th July 2015.</p>
+            <p class="title-survey">Who is the Researcher?</p>
+            <p style="margin: 0px 0px 20px 0px">The research is conducted by Ngan Duong Cao (Rosie), a PhD candidate of Newcastle University in Finance and Economics; and is supervised by Professor Darren Duxbury and Professor Susan Chilton.</p>
+            <p class="title-survey">What is the research about?</p>
+            <p style="margin: 0px 0px 20px 0px">My research is aimed at finding out changes in individual’s financial risk tolerance and investment behaviour across the life span. The current cross-national investigation also discovers one’s psychological forces, which trigger such financial investment decisions to be made. The primary aim of my research is to provide a unifying framework for the examination of cross-national differences in individuals’ financial risk tolerance and investment behaviour across the life course, drawing on and uniting contributions from a range of diverse fields, including finance, economics, psychology, linguistic, sociology and anthropology. At the heart of the research agenda is a desire to better understand individuals’ decision making under risk and uncertainty and over time in the context of investment behaviour, how these may change over the life span, and how one’s psychological predispositions may mediate this process.</p>
+            <p class="title-survey">Who are the participants?  When is the project running?</p>
+            <p style="margin: 0px 0px 20px 0px">Potential participants will be residents of the four countries of investigation: China, Vietnam, the UK and the US. Participants will be above the age of 18. Participants will be recruited entirely online. The project runs from October 2014 to October 2017.</p>
+            <p class="title-survey">Is this voluntary? What if you change your mind about taking part?</p>
+            <p style="margin: 0px 0px 20px 0px">Your involvement in this research project is voluntary. You are free to withdraw from the research at any point you wish UP TO submission. If you do so, you do not have to give a reason. As the survey is completely anonymous, any wish of withdrawal after submission cannot be fulfilled.</p>
 
-Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span>
-        <a class="btn-custom" href="#"><i class="glyphicon glyphicon-play-circle"></i> Start Survey</a>
+            <p class="title-survey">What would be involved?</p>
+            <p style="margin: 0px 0px 20px 0px">If you choose to participate, we would like to ask you a series of broad questions about your willingness to take on financial risk and actual financial investments, questions related to your psychological constructs; together with your personal information about your cultural values and beliefs. These broad questions are about the following:  a) Your financial risk tolerance and perception of risk b) Your actual financial asset investments c) Your languages and cultural backgrounds d) Psychological-related questions e) Your demographic, socioeconomic and attitudinal information.</p>
+            <p class="title-survey">How will the survey data be treated?</p>
+            <p style="margin: 0px 0px 20px 0px">The survey requires neither participant name nor any identifying details. The questionnaire will be completed anonymously. Responses from completed questionnaires will be collated for analysis using a statistical package (STATA); once this is complete the original questionnaires will be retained until successful completion of a PhD. Up to this stage, the data will then be transferred via spreadsheets on to a computer. The computer and research folder are password protected.</p>
+
+            <p class="title-survey">Will everything you say to me be kept private?</p>
+            <p style="margin: 0px 0px 20px 0px">Yes, all information will be anonymous and thus minimise the issue of confidentiality.</p>
+            <p style="margin: 0px 0px 20px 0px">The requirements of Newcastle University’s ethical guidelines will be strictly observed. This means that at all times the researcher must observe the welfare of the research participants and respect the dignity and personal privacy of the individual. All data collected will also be stored securely and safely. All data to be published will be completely anonymous in order to protect the confidentiality of participants.</p>
+            <p>In practical terms, this means that:</p>
+            <ul style="  margin: 0px;padding: 0px 0px 20px 20px;">
+                <li>All data will be fully anonymised.</li>
+                <li>This is achieved via the use of pseudonyms.</li>
+                <li>This anonymity is extended to any other individual or organisation referred to.</li>
+                <li>The data will be used to advance academic knowledge and/or professional practice only and will not be used for any other purpose.</li>
+                <li>With this express aim, anonymised data may be incorporated into articles or presentations.</li>
+            </ul>
+
+            <p class="title-survey">What next?</p>
+            <p style="margin: 0px 0px 20px 0px">I will produce the general outcomes of our research on the website. If there are any areas that require further clarification, you are welcome to contact me via the ‘Contact’ page on the website. I will be pleased to answer any questions. If you choose not to take part in this research, I wish to thank you for your time. You need take no further action.</p>
+            <p class="title-survey">Contact:</p>
+            <p style="margin: 0px;padding: 0px;">Rosie Cao (PhD candidate) Newcastle University Business School (Room 6.22)</p>
+            <p style="margin: 0px;padding: 0px;"><b>Email:</b> <a href="mailto:n.d.cao1@newcastle.ac.uk">n.d.cao1@newcastle.ac.uk</a></p>
+            <p style="margin: 0px;padding: 0px 0px 30px 0px;"><b>Office number:</b> <a>(+44) 1912081601</a></p>
+
+        </div>
+        <div ng-switch-when="vn">
+            <div style="text-align: center; padding-bottom: 15px"><h3 style="color: #23527c">THÔNG TIN VỀ BÀI NGHIÊN CỨU</h3></div>
+
+            <p class="title-survey">Công trình nghiên cứu</p>
+            <p style="margin: 0px 0px 20px 0px">Tôi muốn mời bạn tham gia vào cuộc khảo sát này như là một phần của công trình nghiên cứu tiến sĩ của tôi về "Ảnh hưởng của những đặc tính văn hóa và khuynh hướng tâm lý đến khả năng chịu đựng rủi ro tài chính và hành vi đầu tư khi tuổi tác thay đổi" và những hướng đạt được khung khái niệm về Tài chính và Kinh tế học Hành vi. Điều này hoàn toàn tùy thuộc ở bạn dù bạn có tham gia hay không và phản hồi của bạn rất quan trọng với công trình nghiên cứu này. Trang này cung cấp thông tin cho bạn về lý do tại sao bài nghiên cứu này được thực hiện, do ai thực hiện và những gì nó liên quan tới. Thông tin nền này nhằm đảm bảo rằng bạn có thể quyết định tham gia vào khảo sát này hay không. Ban hội thẩm về mặt đạo đức của trường Đại Học Newcastle đã duyệt công trình nghiên cứu này.</p>
+
+            <p class="title-survey">Ai là nhà nghiên cứu?</p>
+            <p style="margin: 0px 0px 20px 0px">Cao Đường Ngân (Rosie), nghiên cứu sinh Tiến sĩ khoa Tài chính và Kinh tế của trường Đại Học Newcastle là tác giả của bài nghiên cứu này. Giáo sư Darren Duxbury và Giáo sư Susan Chilton là người hướng dẫn và giám sát bài nghiên cứu này.</p>
+            <p class="title-survey">Bài nghiên cứu về vấn đề gì?</p>
+            <p style="margin: 0px 0px 20px 0px">Mục đích của bài nghiên cứu này là tìm ra những sự thay đổi của khả năng chịu rủi ro tài chính và hành vi đầu tư của cá nhân khi tuổi tác thay đổi. Bài nghiên cứu xuyên quốc gia hiện tại cũng tìm ra sức mạnh tâm lý của một người có tác dụng khơi dậy thực hiện những quyết định đầu tư tài chính. Mục tiêu chính của bài nghiên cứu này là đưa ra khung khái  niệm về những khác biệt đối với khả năng chịu rủi ro tài chính và hành vi đầu tư của cá nhân trong cuộc sống giữa các quốc gia, thu thập và sử dụng những đóng góp từ những lĩnh vực đa dang bao gồm tài chính, kinh tế học, tâm lý học, ngôn ngữ học, xã hội học và nhân chủng học. Trọng tâm của bài nghiên cứu này là hiểu rõ hơn về việc đưa ra các quyết định đầu tư của cá nhân với những rủi ro và những điều không chắn chắn trong hành vi đầu tư,  và những điều này sẽ thay đổi như thế nào khi tuổi tác thay đổi và những tác động tâm lý có ảnh hưởng gián tiếp đến quá trình thay đổi này như thế nào.</p>
+
+            <p class="title-survey">Ai là người tham gia? Khi nào công trình nghiên cứu này được thực hiện?</p>
+            <p style="margin: 0px 0px 20px 0px">Những người tham gia tiềm năng là cư dân của bốn quốc gia được nghiên cứu sau: Trung Quốc, Việt Nam, Vương Quốc Anh và Mỹ. Những người tham gia này sẽ được mời tuyển chọn trực tuyến và phải là người trên 18 tuổi. Công trình nghiên cứu này sẽ thực hiện từ tháng 10 năm 2014 đế tháng 10 năm 2017.</p>
+
+            <p class="title-survey">Việc tham gia có phải tình nguyện không? Nếu như người tham gia đổi ý định không muốn tham gia nữa thì điều gì sẽ xảy ra?</p>
+            <p style="margin: 0px 0px 20px 0px">Việc tham gia khảo sát bài nghiên cứu này là hoàn toàn tình nguyện. Bạn có thể không làm khảo sát nữa bất cứ khi nào bạn muốn, cho đến khi bài khảo sát được gửi đi. Bạn không cần phải đưa ra bất cứ lý do gì khi mà bạn làm thế. Vì cuộc khảo sát này hoàn toàn ẩn danh, do vậy việc rút lại bài khảo sát sau khi bài khảo sát đã được nộp là không thể đáp ứng.</p>
+
+            <p class="title-survey">Bài nghiên cứu này liên quan tới cái gì?</p>
+            <p style="margin: 0px 0px 20px 0px">Nếu bạn thạm gia khảo sát, chúng tôi sẽ hỏi bạn một loạt những câu hỏi về sự sẵn sàng chấp nhận rủi ro tài chính và những đầu tư thực tế của bạn, những câu hỏi liên quan tới quan niệm tâm lý của bạn cùng với các giá trị văn hóa và tín ngưỡng. Những câu hỏi này như sau: a) Khả năng chịu rủi ro tài chính và nhận thức về rủi ro của bạn; b) Những tài sản đầu tư thực tế của bạn? c) Ngôn ngữ và nền văn hóa của bạn.; d) Những câu hỏi liên quan  đến tâm lý; e) Thông tin về nhân khẩu, kinh tế xã hội và quan điểm của bạn.</p>
+            <p class="title-survey">Dữ liệu khảo sát sẽ được xử lý như thế nào?</p>
+            <p>Bài khảo sát này không yêu cầu tên của người tham gia hay bất kỳ thông tin nhận dạng nào khác. Những bảng câu hỏi khảo sát sẽ được thực hiện ẩn danh.  Phản hồi từ những câu hỏi khảo sát này sẽ được phân tích kiểm tra bằng phần mềm thống kê (STATA); khi việc phân tích hoàn tất, bản gốc của những câu hỏi khảo sát sẽ được lưu lại cho tới khi hoàn thiện học vị Tiến Sĩ. Đến giai đoạn này, dữ liệu sẽ được chuyển đổi thông qua bảng tính trên máy vi tính. Máy vi tính này và tệp nghiên cứu trên sẽ được bảo vệ bằng mật khẩu.</p>
+
+            <p class="title-survey">Tất cả những gì bạn nói với tôi sẽ được giữ bí mật chứ?</p>
+            <p style="margin: 0px 0px 20px 0px">Vâng, tất cả thông tin sẽ được ẩn danh vì thế sẽ hạn chế tối đa các vấn đề về bảo mật.</p>
+            <p style="margin: 0px 0px 20px 0px">Những yêu cầu về nguyên tắc đạo đức của trường Đại Học Newcastle sẽ được giám sát chặt chẽ. Tức là nhà nghiên cứu phải tuân theo phúc lợi của người tham gia nghiên cứu, và tôn trọng lòng tự trọng và cuộc sống riêng tư của họ trong suốt quá trình nghiên cứu. Tất cả dữ liệu thu thập sẽ được bảo quản cẩn mật và an toàn. Tất cả dữ liệu được công bố sẽ hoàn toàn ẩn danh để bảo đảm tính bảo mật của người tham gia.</p>
+
+            <p>Cụ thể, điều này nghĩa là:</p>
+            <ul style="  margin: 0px;padding: 0px 0px 20px 20px;">
+                <li>Tất cả dữ liệu sẽ hoàn toàn ẩn danh.</li>
+                <li>Điều này được thực hiện thông qua việc sử dụng biệt hiệu</li>
+                <li>Việc ẩn danh này sẽ áp dụng cho bất kỳ cá nhân hay tổ chức nào có liên quan.</li>
+                <li>Dữ liệu sẽ chỉ được sử dụng cho việc nâng cao kiến thức học thuật và/hoặc áp dụng cho chuyên môn thực tế và không sử dụng cho mục đích nào khác.</li>
+                <li>Với mục tiêu rõ ràng, dữ liệu ẩn danh có thể sẽ được sử dụng kết hợp với báo chí hoặc trình chiếu.</li>
+            </ul>
+
+            <p class="title-survey">Tiếp theo là gì?</p>
+            <p style="margin: 0px 0px 20px 0px">Tôi sẽ trình bày những kết quả chung của nghiên cứu của tôi trên website. Nếu có chỗ nào cần giải thích rõ hơn, bạn có thể liên hệ với tôi thông qua trang "Liên Hệ" trên website. Tôi sẽ sẵn lòng trả lời mọi thắc mắc. Nếu bạn lựa chọn không tham gia vào nghiên cứu này, tôi rất cảm ơn bạn đã bỏ thời gian quý giá của mình. Bạn không cần phải làm gì khác sau đó.</p>
+
+            <p class="title-survey">Thông tin liên hệ:</p>
+            <p style="margin: 0px;padding: 0px;">Cao Đường Ngân (Nghiên cứu sinh Tiến sĩ), Trường Đại Học Newcastle (Phòng 6.22)</p>
+            <p style="margin: 0px;padding: 0px;"><b>Địa chỉ Email:</b> <a href="mailto:n.d.cao1@newcastle.ac.uk">n.d.cao1@newcastle.ac.uk</a></p>
+            <p style="margin: 0px;padding: 0px 0px 30px 0px;"><b>Số điện thoại văn phòng:</b> (+44) 1912081601</p>
+
+        </div>
+        <div ng-switch-when="ch">
+
+        </div>
+        <a class="btn-custom" href="#choose-mode"><i class="glyphicon glyphicon-play-circle"></i> Start Survey</a>
     </article>
 </div>

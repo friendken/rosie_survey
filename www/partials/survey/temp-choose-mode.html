@@ -1,0 +1,22 @@
+<div ng-app="survey" ng-controller="chooseModeController">
+    <article class="col-md-12">
+        <h3 class="title col-md-12">Choose mode</h3>
+        <div class="description-mode">
+            Are you currently holding any stock/share?
+        </div>
+    </article>
+    <div ng-switch="stockLanguage">
+        <div ng-switch-when="en">
+            <div class="stock-mode"><a class="btn-custom" ng-click="chooseMode(1)">YES</a></div>
+            <div class="none-stock-mode"><a class="btn-custom" ng-click="chooseMode(2)">NO</a></div>
+        </div>
+        <div ng-switch-when="vn">
+            <div class="stock-mode"><a class="btn-custom" ng-click="chooseMode(1)">Có</a></div>
+            <div class="none-stock-mode"><a class="btn-custom" ng-click="chooseMode(2)">Không</a></div>
+        </div>
+        <div ng-switch-when="ch">
+            <div class="stock-mode"><a class="btn-custom" ng-click="chooseMode(1)">股票</a></div>
+            <div class="none-stock-mode"><a class="btn-custom" ng-click="chooseMode(2)">无库存</a></div>
+        </div>
+    </div>
+</div>

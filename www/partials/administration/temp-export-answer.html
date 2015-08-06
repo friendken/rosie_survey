@@ -1,0 +1,64 @@
+<div ng-app="administration" ng-controller="exportAnswerController">
+    <div class="report-widgets hidden-480 hidden-768">
+        <div class="row-fluid">
+            <div class="span4" style="width: 40%; margin-right: 30px">
+                <div class="widget grey clearfix">
+                    <div class="content">
+                        <div class="icon">
+                            <i class="icon-shopping-cart"></i>
+                            Stock holder
+                        </div>
+                        <div class="value">
+                            {{ stockNumber | number}}
+                        </div>
+                    </div>
+                    <a ng-click="exportExcel(1)" class="more"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="span4" style="width: 40%; margin-right: 30px">
+                <div class="widget dark_turq clearfix">
+                    <div class="content">
+                        <div class="icon">
+                            <i class="icon-globe"></i>
+                            None stock holder
+                        </div>
+                        <div class="value">
+                            {{ noneStockNumber | number}}
+                        </div>
+                    </div>
+                    <a ng-click="exportExcel(2)" class="more"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="report-widgets hidden-480 hidden-768">-->
+        <!--<div class="row-fluid">-->
+            <!--<div class="span4">-->
+                <!--<div class="widget orange clearfix">-->
+                    <!--<div class="content">-->
+                        <!--<div class="icon">-->
+                            <!--<i class="icon-globe"></i>-->
+                            <!--Stock holder-->
+                        <!--</div>-->
+                        <!--<div class="value">-->
+                            <!--{{ countAnswer | number}}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<a ng-click="exportExcel()" class="more"><i class="icon-arrow-right"></i></a>-->
+                <!--</div>-->
+                <!--<div class="widget orange clearfix">-->
+                    <!--<div class="content">-->
+                        <!--<div class="icon">-->
+                            <!--<i class="icon-globe"></i>-->
+                            <!--None stock holder-->
+                        <!--</div>-->
+                        <!--<div class="value">-->
+                            <!--{{ countAnswer | number}}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<a ng-click="exportExcel()" class="more"><i class="icon-arrow-right"></i></a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

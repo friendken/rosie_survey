@@ -1,0 +1,32 @@
+<div ng-app="survey" ng-controller="startSurveyController">
+    <article class="col-md-12">
+        <h3 class="title col-md-12">Start survey</h3>
+    </article>
+
+    <article class="container">
+        <div class="col-md-12 up-page page-number">
+            <span>Page: </span>
+            <span class="number pagination-{{ item }}" ng-repeat="item in processPage">{{ item }}</span>
+        </div>
+    </article>
+    <div id="page-quesetion">
+        <div class="question-list" style="margin-bottom: 30px" ng-repeat="(key,row) in questions">
+            <div class="question-show" ng-bind-html="row | renderQuestion:language"></div>
+        </div>
+    </div>
+    <div class="pagination-question" align="center" ng-switch="nextBtn">
+        <div ng-switch-when="0">
+
+            <a ng-click="loadNextPage()"><i class="glyphicon glyphicon-arrow-right"></i>Next page</a>
+        </div>
+        <div ng-switch-when="1">
+            <a ng-click="sendResult()">Finish</a>
+        </div>
+    </div>
+    <article class="container">
+        <div class="col-md-12 down-page page-number ">
+            <span>Page: </span>
+            <span class="number pagination-{{ item }}" ng-repeat="item in processPage">{{ item }}</span>
+        </div>
+    </article>
+</div>

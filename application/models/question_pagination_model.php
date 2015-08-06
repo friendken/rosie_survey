@@ -17,4 +17,12 @@ class Question_pagination_model extends MY_model {
     public function truncateTable(){
         $this->db->empty_table($this->table_name);
     }
+
+    public function get_num_of_page($mode_id){
+        $pagination =  $this->db->select("MAX( pagination ) AS last_page")
+                                ->where('mode_id', $mode_id)
+                                ->get($this->table_name)
+                                ->row();
+        return $pagination->last_page;
+    }
 }

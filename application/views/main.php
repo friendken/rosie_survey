@@ -3,7 +3,7 @@
     <head>
         
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-        <title>Survey</title>
+        <title>Administration</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -63,6 +63,7 @@
         <script src="www/js/library/jquery.inputmask.bundle.js"></script>
         <script src="www/js/flatpoint_core.js"></script>
         <script src="www/js/library/bootstrap-select.js"></script>
+        <script src="www/js/moment.js"></script>
         <script src="www/third_party/ckeditor/ckeditor.js"></script>
 
         <script src="www/js/angular/angular.js"></script>
@@ -71,7 +72,9 @@
         <script src="www/js/administration/app.js"></script>
         <script src="www/js/administration/services.js"></script>
         <script src="www/js/administration/directives.js"></script>
-        <script src="www/js/administration/controllers.js"></script>
+        <script src="www/js/administration/controller.questions.js"></script>
+        <script src="www/js/administration/controller.message-center.js"></script>
+        <script src="www/js/administration/modal/modalController.js"></script>
         <script src="www/js/administration/filters.js"></script>
         <script src="www/js/angular/ui-bootstrap.min.js"></script>
         <script type="text/javascript">
@@ -132,67 +135,22 @@
                         <li><a class="black set_color" href="#"></a></li>
                     </ul>
                 </li>
-                <li rel="tooltip" data-placement="bottom" title="2 new messages" class="hidden-480 messages"><a class="iconic" href="#"><i class="icon-envelope-alt"></i> 2</a>
+                <li rel="tooltip" data-placement="bottom" title="2 new messages" class="hidden-480 messages"><a class="iconic" href="#"><i class="icon-envelope-alt"></i> {{ count }}</a>
                     <ul class="dropdown-menu pull-right messages_dropdown">
-                        <li>
-                            <a href="#">
-                                <img src="www/demo/avatar_06.png" alt="">
+                        <li ng-repeat="(key,item) in messages">
+                            <a href="#message-detail/{{item.id}}">
                                 <div class="details">
-                                    <div class="name">Jane Doe</div>
+                                    <div class="name">{{ item.name }}</div>
                                     <div class="message">
-                                        Lorem ipsum Commodo quis nisi...
+                                        {{item.message}}
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <img src="www/demo/avatar_05.png" alt="">
-                                <div class="details">
-                                    <div class="name">Jane Doe</div>
-                                    <div class="message">
-                                        Lorem ipsum Commodo quis nisi...
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="www/demo/avatar_04.png" alt="">
-                                <div class="details">
-                                    <div class="name">Jane Doe</div>
-                                    <div class="message">
-                                        Lorem ipsum Commodo quis nisi...
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="www/demo/avatar_05.png" alt="">
-                                <div class="details">
-                                    <div class="name">Jane Doe</div>
-                                    <div class="message">
-                                        Lorem ipsum Commodo quis nisi...
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="www/demo/avatar_06.png" alt="">
-                                <div class="details">
-                                    <div class="name">Jane Doe</div>
-                                    <div class="message">
-                                        Lorem ipsum Commodo quis nisi...
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <a href="#" class="btn btn-block blue align_left"><span>Messages center</span></a>
+                        <a href="#message-center" class="btn btn-block blue align_left"><span>Messages center</span></a>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="#"><img src="www/demo/avatar_06.png" alt="User image" class="avatar"> Rosie Cao <i class="icon-angle-down"></i></a>
+                <li class="dropdown"><a href="#"><img src="www/img/survey/author.jpg" alt="User image" class="avatar"> Rosie Cao <i class="icon-angle-down"></i></a>
                     <ul>
                         <li><a href="#"><i class="icon-cog"></i> User options</a></li>
                         <li><a href="#"><i class="icon-inbox"></i> Messages</a></li>
@@ -232,23 +190,7 @@
 
 
     <script>
-//        jQuery('#vmap').vectorMap({
-//            map:"world_en",
-//            backgroundColor:null,
-//            color:"#ffffff",
-//            hoverOpacity:.7,
-//            selectedColor:"#2d91ef",
-//            enableZoom:0,
-//            showTooltip:1,
-//            values:sample_data,
-//            scaleColors:["#8cc3f6","#5c86ac"],
-//            normalizeFunction:"polynomial",
-//            onRegionClick:function(){alert("This Region has "+(Math.floor(Math.random()*10)+1)+" users!"
-//            )}
-//        });
-
         jQuery(document).ready(function ($) {
-//            console.log($('#content').html())
             $('.footable').footable();
             $('.responsive_table_container').mCustomScrollbar({
                 set_height: 400,
@@ -265,12 +207,6 @@
                     updateOnBrowserResize: true
                 }
             });
-
-//            $('.inner_sidebar').easytabs({
-//                animationSpeed: 300,
-//                collapsible: false,
-//                updateHash: false
-//            });
         });
     </script>
 

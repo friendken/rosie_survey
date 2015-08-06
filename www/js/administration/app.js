@@ -1,7 +1,6 @@
 var administration = angular.module('administration', [
     'ui.router',
     'ui.bootstrap',
-    
     'administration.services',
     'administration.filters',
     'administration.controllers'
@@ -23,6 +22,13 @@ config(function($stateProvider, $urlRouterProvider){
         "content": { templateUrl: 'www/partials/administration/question_create/temp-question-create-single.html'}
       },
       controller: 'questionCreateSingleController'
+    })
+    .state('create-text', {
+        url: "/create-text",
+        views: {
+            "content": { templateUrl: 'www/partials/administration/question_create/temp-create-text.html'}
+        },
+        controller: 'createTextController'
     })
     .state('question-create-group', {
       url: "/question-create-group",
@@ -74,7 +80,7 @@ config(function($stateProvider, $urlRouterProvider){
       controller: 'questionEditSpecialController'
     })
     .state('question-list', {
-      url: "/question-list",
+      url: "/question-list/:mode",
       views: {
         "content": { templateUrl: 'www/partials/administration/temp-question-list.html'}
       },
@@ -86,5 +92,33 @@ config(function($stateProvider, $urlRouterProvider){
         "content": { templateUrl: 'www/partials/administration/temp-question-preview.html'}
       },
       controller: 'questionPreviewController'
+    })
+    .state('question-all', {
+        url: "/question-all",
+        views: {
+            "content": { templateUrl: 'www/partials/administration/temp-question-all.html'}
+        },
+        controller: 'questionAllController'
+    })
+    .state('message-center', {
+        url: "/message-center",
+        views: {
+            "content": { templateUrl: 'www/partials/administration/message/temp-message-center.html'}
+        },
+        controller: 'messageCenterController'
+    })
+    .state('message-detail', {
+        url: "/message-detail/:message_id",
+        views: {
+            "content": { templateUrl: 'www/partials/administration/message/temp-message-detail.html'}
+        },
+        controller: 'messageDetailController'
+    })
+    .state('export-answer', {
+        url: "/export-answer",
+        views: {
+            "content": { templateUrl: 'www/partials/administration/temp-export-answer.html'}
+        },
+        controller: 'exportAnswerController'
     })
 })

@@ -1,0 +1,49 @@
+<div ng-app="administration" ng-controller="createTextController">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="well blue">
+                <div class="well-header">
+                    <h5>Create Text</h5>
+                </div>
+
+                <div class="well-content no_padding">
+                    <div class="navbar-inner" data-hbo-tabs>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a ng-click="activeTab('tab-en')" data-toggle="tab">English</a></li>
+                            <li class=""><a ng-click="activeTab('tab-vn')" data-toggle="tab">Tiếng Việt</a></li>
+                            <li class=""><a ng-click="activeTab('tab-ch')" data-toggle="tab">中国</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-en">
+                            <h2>Create Question</h2>
+                            <select class="selectpicker" ng-model="groupQuestion" title='select group'>
+                                <option ng-repeat="item in groups" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <div class="question-mode">
+                                <span ng-repeat='item in modes'>
+                                    <input type="checkbox" value="{{ item.id }}"/>{{ item.value }}
+                                </span>
+                            </div>
+                            <textarea id="question-en"></textarea>
+                        </div>
+                        <div class="tab-pane" id="tab-vn">
+                            <h2>Tạo câu hỏi</h2>
+                            <textarea id="question-vn"></textarea>
+                        </div>
+                        <div class="tab-pane" id="tab-ch">
+                            <h2>Create Question</h2>
+                            <textarea id="question-ch"></textarea>
+                        </div>
+                    </div>
+                    <div class="form_row" style="margin-bottom: 10px">
+                        <div class="field">
+                            <a ng-click="save()" class="blue btn">Save Text</a>
+                            <a class="red btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

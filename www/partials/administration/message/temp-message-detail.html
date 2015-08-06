@@ -1,0 +1,35 @@
+<div ng-app="administration" ng-controller="messageDetailController">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="well dark_blue">
+                <div class="well-header">
+                    <h5>Message Detail</h5>
+
+                </div>
+
+                <div class="well-content no-search">
+                    <form class="message-detail">
+                        <div class="form_row">
+                            <label class="field_name">From</label>
+                            <div class="field">
+                                <span><b>{{message.name}}</b></span>
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <label class="field_name">Email</label>
+                            <div class="field">
+                                <a href="mailto:{{ message.email }}">{{ message.email }}</a>
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <label class="field_name">Message</label>
+                            <div class="field">
+                                <div class="span12" id="textare_char">{{ message.message}}</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,6 +43,11 @@
                             <select class="selectpicker" ng-model="groupQuestion" title='select group'>
                                 <option ng-repeat="item in groups" value="{{item.id}}">{{item.name}}</option>
                             </select>
+                            <div class="question-mode">
+                                <span ng-repeat='item in modes'>
+                                    <input type="checkbox" value="{{ item.id }}"/>{{ item.value }}
+                                </span>
+                            </div>
                             <textarea id="question-en"></textarea>
                         </div>
                         <div class="tab-pane" id="tab-vn">

@@ -3787,3 +3787,129 @@ footer ul li a {
 .sub-question {
     margin-bottom: 10px;
 }
+.question-mode{
+    line-height: 35px;
+}
+.question-mode span{
+    padding-right: 40px;
+}
+.question-mode input{
+    margin-right: 10px;
+}
+.dragge_question{
+    width: 540px !important;
+    top: 98;
+    z-index: 999;
+    float: left;
+    
+}
+.drop_question{
+    float: right;
+    width: 45% !important;
+}
+.question-div{
+    background-color: #008299;
+    margin: 10px 8px;
+    box-shadow: none;
+    width: 50px;
+    font-size: 20px;
+    padding: 0;
+    height: 45px;
+    float: left;
+    border-radius: 5px;
+    cursor: move;
+    z-index: 9;
+}
+.droppable-div{
+    background-color: #008299;
+    margin: 10px 8px;
+    box-shadow: none;
+    width: 50px;
+    padding: 0;
+    height: 45px;
+    float: left;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.remove-question{
+    margin-left: 10px;
+    /*position: absolute;*/
+    /*top: 5px;*/
+    /*left: 43px;*/
+    /*color: rgb(40, 166, 189);*/
+}
+.question-content{
+    width: 100px;
+    height: 46px;
+    display: table-cell;
+    overflow: hidden;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+}
+.reset-margin{
+    margin: 0px !important
+}
+.title-page{
+    background: none !important;
+    border: 1px dashed #585858;
+    color: #000;
+}
+.title-page h5{
+    color: #000 !important;
+}
+.content-page{
+    border: 1px dashed #585858 !important;
+}
+.grey.list_page{
+    display: inline-block;
+    width: 100%;
+}
+.add-more-page{
+    color: #000000 !important;
+    cursor: pointer;
+}
+.label-radio{
+    background-color: #009EBA;
+}
+.label-checkbox{
+    background-color: #9B5D0B;
+}
+.label-scale{
+    background-color: #327430;
+}
+.label-radio-with-textbox{
+    background-color: #705B9B;
+}
+.label-checkbox-with-textbox{
+    background-color: #2FCAAC;
+}
+.label-text{
+    background-color: #17248E;
+}
+form.message-detail label{
+    width: 10% !important;
+}
+form.message-detail div.field{
+    margin-left: 10%;
+    top: 5px
+}
+form.message-detail div.form_row{
+    margin-bottom: 2px;
+}
+form.message-detail{
+    font-size: 14px !important;
+}
+form.message-detail label.field_name{
+    font-size: 14px !important;
+}
+.add-more-answer{
+    margin-top: -10px !important;
+    height: 24px;
+}
+.add-more-answer .icon-plus{
+    top: 4px !important;
+}
+table.table_custom_1.des-table tr:nth-child(3) td p{
+line-height:22px
+}

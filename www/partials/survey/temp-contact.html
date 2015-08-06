@@ -11,7 +11,7 @@
                       Newcastle Upon Tyne <br>
                       NE1 4SE</span>
             <a href="mailto:n.d.cao1@newcastle.ac.uk" class="mail"><i class="glyphicon glyphicon-envelope"></i>n.d.cao1@newcastle.ac.uk</a>
-            <a href="#" class="phone"><i class="glyphicon glyphicon-earphone"></i> (+44) 1912081601</a>
+            <a href="#" class="phone"><i class="glyphicon glyphicon-earphone"></i> (+44) 1912081601<span style="display: block; margin-left: 18px">(+44) 1912081600</span></a>
             <ul class="social">
                 <li class="icon in"><a href="#">in</a></li>
                 <li class="icon face"><a href="#">face</a></li>
@@ -27,18 +27,18 @@
             <form>
                 <div class="form-group">
                     <label for="yourname">Your name: ( Optional )</label>
-                    <input type="" class="form-control" id="yourname">
+                    <input type="" class="form-control" id="yourname" ng-model="contact.name">
                 </div>
                 <div class="form-group">
                     <label for="youremail">E-mail:</label>
-                    <input type="email" class="form-control" id="youremail">
+                    <input type="email" class="form-control" id="youremail" ng-model="contact.email">
                 </div>
                 <div class="form-group">
                     <label for="youremail">Your Message:</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" ng-model="contact.message"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" ng-click='sendMessage()' class="btn btn-default">Submit</button>
                 <button class="clear btn btn-default">Clear</button>
             </form>
         </article>

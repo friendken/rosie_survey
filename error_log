@@ -1,0 +1,82 @@
+[23-May-2015 11:00:31 UTC] PHP Fatal error:  Call to a member function userdata() on a non-object in /home/rsbfe/public_html/application/controllers/administration/Main.php on line 13
+[23-May-2015 11:02:21 UTC] PHP Fatal error:  Call to undefined method User_model::getUser() in /home/rsbfe/public_html/application/controllers/administration/User.php on line 11
+[30-May-2015 12:24:48 UTC] PHP Fatal error:  Call to a member function get_array() on a non-object in /home/rsbfe/public_html/application/controllers/administration/Questions.php on line 15
+[07-Jun-2015 09:18:16 UTC] PHP Fatal error:  Call to a member function model() on a non-object in /home/rsbfe/public_html/application/controllers/administration/Pagination.php on line 12
+[13-Jun-2015 10:53:01 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 13
+[13-Jun-2015 10:58:32 UTC] PHP Fatal error:  Call to undefined method CI_DB_mysqli_driver::where_ic() in /home/rsbfe/public_html/application/models/Questions_model.php on line 28
+[13-Jun-2015 11:15:24 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 15
+[13-Jun-2015 11:15:37 UTC] PHP Fatal error:  require(): Failed opening required '../administration/Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:16:32 UTC] PHP Fatal error:  require(): Failed opening required '/administration/Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:16:56 UTC] PHP Fatal error:  require(): Failed opening required './../administration/Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:17:10 UTC] PHP Fatal error:  require(): Failed opening required 'Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:17:30 UTC] PHP Fatal error:  require(): Failed opening required '../Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:17:41 UTC] PHP Fatal error:  require(): Failed opening required '../administration/Questions.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 3
+[13-Jun-2015 11:24:58 UTC] PHP Fatal error:  Call to undefined method Survey::getQuestionDetail() in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 14
+[13-Jun-2015 11:27:31 UTC] PHP Fatal error:  Call to undefined method Survey::getQuestionMultiple() in /home/rsbfe/public_html/application/controllers/administration/Questions.php on line 44
+[13-Jun-2015 11:31:33 UTC] PHP Fatal error:  Class 'MY_model' not found in /home/rsbfe/public_html/application/models/Question_pagination_model.php on line 14
+[13-Jun-2015 12:43:37 UTC] PHP Fatal error:  Class 'Questions' not found in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 4
+[13-Jun-2015 12:43:57 UTC] PHP Fatal error:  Call to a member function getQuestionDetail() on a non-object in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 14
+[13-Jun-2015 12:44:30 UTC] PHP Fatal error:  Call to a member function getQuestionDetail() on a non-object in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 14
+[13-Jun-2015 12:56:20 UTC] PHP Fatal error:  Call to a member function get_array() on a non-object in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 52
+[14-Jun-2015 11:58:44 UTC] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/rsbfe/public_html/application/models/Question_pagination_model.php on line 23
+[14-Jun-2015 11:58:47 UTC] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/rsbfe/public_html/application/models/Question_pagination_model.php on line 23
+[14-Jun-2015 11:58:49 UTC] PHP Parse error:  syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/rsbfe/public_html/application/models/Question_pagination_model.php on line 23
+[09-Jul-2015 12:43:25 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/rsbfe/public_html/application/controllers/administration/Pagination.php on line 34
+[09-Jul-2015 12:43:37 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/rsbfe/public_html/application/controllers/administration/Pagination.php on line 34
+[09-Jul-2015 12:43:40 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/rsbfe/public_html/application/controllers/administration/Pagination.php on line 34
+[09-Jul-2015 12:43:44 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/rsbfe/public_html/application/controllers/administration/Pagination.php on line 34
+[10-Jul-2015 13:37:04 UTC] PHP Fatal error:  Call to a member function row() on a non-object in /home/rsbfe/public_html/application/models/Answers_model.php on line 7
+[10-Jul-2015 13:39:02 UTC] PHP Fatal error:  Call to undefined method Answers_model::insertAnswer() in /home/rsbfe/public_html/application/controllers/survey/Survey.php on line 35
+[10-Jul-2015 13:39:28 UTC] PHP Fatal error:  Call to a member function row() on a non-object in /home/rsbfe/public_html/application/models/Answers_model.php on line 7
+[10-Jul-2015 13:40:56 UTC] PHP Fatal error:  Call to a member function get() on a non-object in /home/rsbfe/public_html/application/models/Answers_model.php on line 8
+[10-Jul-2015 13:41:32 UTC] PHP Fatal error:  Call to a member function insert() on a non-object in /home/rsbfe/public_html/application/models/Answers_model.php on line 8
+[11-Jul-2015 07:48:00 UTC] PHP Fatal error:  Call to undefined method CI_Loader::libary() in /home/rsbfe/public_html/application/controllers/administration/Answers.php on line 22
+[12-Jul-2015 04:35:10 UTC] PHP Parse error:  syntax error, unexpected '$answer' (T_VARIABLE) in /home/rsbfe/public_html/application/controllers/administration/Answers.php on line 30
+[12-Jul-2015 04:35:30 UTC] PHP Parse error:  syntax error, unexpected '$answer' (T_VARIABLE) in /home/rsbfe/public_html/application/controllers/administration/Answers.php on line 31
+[12-Jul-2015 04:35:32 UTC] PHP Parse error:  syntax error, unexpected '$answer' (T_VARIABLE) in /home/rsbfe/public_html/application/controllers/administration/Answers.php on line 31
+[16-Jul-2015 13:39:54 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:39:54 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:04 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:04 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:10 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:12 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:18 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:18 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[16-Jul-2015 13:40:21 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:39:39 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:39:39 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:39:41 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:39:41 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:39:43 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:39:43 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:37 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:37 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:38 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:38 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:45 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:45 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:45 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:45 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:46 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:46 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:46 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:46 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:49 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:49 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:49 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:49 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:50 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:50 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 09:55:50 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 09:55:50 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 12:46:27 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 12:46:27 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0
+[20-Jul-2015 12:46:27 UTC] PHP Warning:  [eAccelerator] Can not create shared memory area in Unknown on line 0
+[20-Jul-2015 12:46:27 UTC] PHP Fatal error:  Unable to start eAccelerator module in Unknown on line 0

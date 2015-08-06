@@ -24,6 +24,34 @@ angular.module('administration.services', [])
                 }
             }
         }])
+        .service('$messageModel',['$http',function($http){
+            return {
+                getMessages: function(callback){
+                    $http.get(config.base + 'survey/contact/getMessages').success(function(data){
+                        callback(data)
+                    })
+                },
+                getMessageUnread: function(callback){
+                    $http.get(config.base + 'survey/contact/getMessageUnread').success(function(data){
+                        callback(data)
+                    })
+                },
+                getMessage: function(message_id,callback){
+                    $http.get(config.base + 'survey/contact/getMessage/' + message_id).success(function(data){
+                        callback(data)
+                    })
+                }
+            }
+        }])
+        .service('$answers',['$http', function($http){
+            return {
+                getNumOfAnswer: function(callback){
+                    $http.get(config.base + 'administration/answers/getNumOfAnswer').success(function(data){
+                        callback(data)
+                    })
+                }
+            }
+        }])
         .service('questionGroup',['$http',function($http){
             return{
                 getGroup: function(callback){
@@ -32,8 +60,28 @@ angular.module('administration.services', [])
                         callback(data)
                     })
                 },
+                getQuestionByMode: function(mode,callback){
+                    $http.get(config.base + 'administration/questions/getQuestionByMode/' + mode).success(function(data){
+                        callback(data)
+                    })
+                },
                 getQuestionDetail: function(question_id,callback){
                     $http.get(config.base + 'administration/questions/getQuestionDetail/' + question_id).success(function(data){
+                        callback(data)
+                    })
+                },
+                getMode: function(callback){
+                    $http.get(config.base + 'administration/questions/getMode').success(function(data){
+                        callback(data)
+                    })
+                },
+                getPagination: function(mode,callback){
+                    $http.get(config.base + 'administration/pagination/getPagination/' + mode).success(function(data){
+                        callback(data)
+                    })
+                },
+                deleteQuestion: function(question_id,callback){
+                    $http.get(config.base + 'administration/questions/deleteQuestion/' + question_id).success(function(data){
                         callback(data)
                     })
                 }

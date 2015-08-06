@@ -1,16 +1,46 @@
 <div ng-app="administration" ng-controller="questionListController">
+    <script type="text/ng-template" id="questionPreviewModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+            <h3>Question {{ title }}</h3>
+        </div>
+        <div class="modal-body">
+            <div ng-bind-html="content"></div>
+        </div>
+        <div class="modal-footer">
+            <a ng-click="cancel()" data-dismiss="modal" aria-hidden="true" class="btn grey">Close</a>
+        </div>
+    </script>
     <div class="row-fluid" id="sortable_boxes">
-        <div class="span4 column sortable">
-            <div ng-repeat="(key,item) in questions" class="well order-question {{item.question_type | colorBox}}" data-question-id="{{item.id}}">
+        <div class="span4 column dragge_question">
+            <div class="well black">
                 <div class="well-header">
-                    <h5>Question {{key + 1}}</h5>
+                    <h5>Question List</h5>
                     <ul>
-                        <li class="color_pick"><a ng-click="setPagination($event)" class="pagination_number" data-question-id="{{item.id}}" style="color: white;font-size: 20px" title="preview question" data-number="{{item.order | number_order:pagination}}" ng-bind-html="item.order | pagination:pagination"></a></li>
-                        <li class="color_pick"><a href="#question-preview/{{item.id}}" title="preview question"><i class="icon-th"></i></a></li>
+                        <li class="color_pick"><a href="#question-preview/{{item.id}}" title="preview question"><i
+                                class="icon-th"></i></a></li>
                     </ul>
                 </div>
-                <div class="well-content">
-                    {{item.en | limitTo: 750}}{{item.en.length > 750 ? '...' : ''}}
+                <div class="span12 reset-margin well-content">
+                    <div ng-click="showQuestionDetail()" class="question-div" ng-repeat="(key,item) in questions" data-id="{{item.id}}">
+                        <span class="question-content">{{ item.id }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="drop_question">
+            <div class="well grey list_page" ng-repeat="(key,row) in data_pagination" data-position="{{ key }}">
+                <div class="well-header title-page">
+                    <h5>Page {{ row.pagination }}</h5>
+                    <ul>
+                        <li class="color_pick"><a title="preview question"><i class="add-more-page icon-plus" ng-click="addMorePage()" ></i></a></li>
+                        <li class="color_pick"><a title="preview question"><i class="add-more-page icon-remove" ng-click="removePage($event)"></i></a></li>
+                    </ul>
+                </div>
+                <div class="well-content span12 reset-margin content-page sort-question" >
+                    <div class="droppable-div" ng-repeat="item in row.value" data-id="{{ item }}">
+                        <span class="question-content"><label ng-click="showQuestionDetail($event)">{{ item }}</label><i ng-click="removeQuestion($event)" class="icon-remove remove-question"></i></span>
+                    </div>
                 </div>
             </div>
         </div>

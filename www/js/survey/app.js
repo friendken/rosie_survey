@@ -31,4 +31,25 @@ var survey = angular.module('survey', [
                 },
                 controller: 'contactController'
             })
+            .state('start-survey', {
+                url: "/start-survey",
+                views: {
+                    "content": { templateUrl: 'www/partials/survey/temp-start-survey.html'}
+                },
+                controller: 'startSurveyController'
+            })
+            .state('choose-mode', {
+                url: "/choose-mode",
+                views: {
+                    "content": { templateUrl: 'www/partials/survey/temp-choose-mode.html'}
+                },
+                controller: 'chooseModeController'
+            })
+            .state('thank-you', {
+                url: "/thank-you",
+                views: {
+                    "content": { templateUrl: 'www/partials/survey/temp-thank-you.html'}
+                },
+                controller: 'thankYouController'
+            })
     })

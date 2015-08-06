@@ -3,30 +3,7 @@
         <div class="span6">
             <div class="well {{ question.question_type | colorBox }}">
                 <div class="well-header">
-                    <h5>Preview Question</h5>
-                    <ul>
-                        <li class="color_pick"><a><i class="icon-th"></i></a>
-                            <ul>
-                                <li><a class="blue set_color" href="#"></a></li>
-                                <li><a class="light_blue set_color" href="#"></a></li>
-                                <li><a class="grey set_color" href="#"></a></li>
-                                <li><a class="pink set_color" href="#"></a></li>
-                                <li><a class="red set_color" href="#"></a></li>
-                                <li><a class="orange set_color" href="#"></a></li>
-                                <li><a class="yellow set_color" href="#"></a></li>
-                                <li><a class="green set_color" href="#"></a></li>
-                                <li><a class="dark_green set_color" href="#"></a></li>
-                                <li><a class="turq set_color" href="#"></a></li>
-                                <li><a class="dark_turq set_color" href="#"></a></li>
-                                <li><a class="purple set_color" href="#"></a></li>
-                                <li><a class="violet set_color" href="#"></a></li>
-                                <li><a class="dark_blue set_color" href="#"></a></li>
-                                <li><a class="dark_red set_color" href="#"></a></li>
-                                <li><a class="brown set_color" href="#"></a></li>
-                                <li><a class="black set_color" href="#"></a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <h5>Question {{question.id}}</h5>
                 </div>
 
                 <div class="well-content no_padding">
@@ -42,14 +19,39 @@
                             <div ng-bind-html="question.en"></div>
                             <div ng-switch="question.question_type">
                                 <div ng-switch-when="3">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.en">
-                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.en">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div ng-switch-when="5">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.en">
-                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.en">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div ng-switch-when="7">
+                                    <span ng-repeat="(key,item) in question.question_detail.en" style="width: 120px; margin-right: 10px">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </span>
+                                </div>
+                                <div ng-switch-when="6">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.en">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
+                                </div>
+                                <div ng-switch-when="8">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.en">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
                                 </div>
                                 <div ng-switch-when="2">
                                     <div style="padding: 5px">
@@ -64,14 +66,39 @@
                             <div ng-bind-html="question.vn"></div>
                             <div ng-switch="question.question_type">
                                 <div ng-switch-when="3">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.vn">
-                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.vn">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div ng-switch-when="5">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.vn">
-                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.vn">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div ng-switch-when="7">
+                                    <span ng-repeat="(key,item) in question.question_detail.vn" style="width: 120px; margin-right: 10px">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </span>
+                                </div>
+                                <div ng-switch-when="6">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.vn">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
+                                </div>
+                                <div ng-switch-when="8">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.vn">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
                                 </div>
                                 <div ng-switch-when="2">
                                     <div style="padding: 5px">
@@ -86,14 +113,39 @@
                             <div ng-bind-html="question.ch"></div>
                             <div ng-switch="question.question_type">
                                 <div ng-switch-when="3">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.ch">
-                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.ch">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div ng-switch-when="5">
-                                    <div style="padding: 5px" ng-repeat="(key,item) in question.question_detail.ch">
-                                        <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
-                                    </div>
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.ch">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div ng-switch-when="7">
+                                    <span ng-repeat="(key,item) in question.question_detail.ch" style="width: 120px; margin-right: 10px">
+                                        <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                    </span>
+                                </div>
+                                <div ng-switch-when="6">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.ch">
+                                            <input type="radio" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
+                                </div>
+                                <div ng-switch-when="8">
+                                    <ul style="list-style-type: none; margin: 0 auto">
+                                        <li ng-repeat="(key,item) in question.question_detail.ch">
+                                            <input type="checkbox" name="answer_{{item.question_detail_detail}}"/> {{item.value}}
+                                        </li>
+                                    </ul>
+                                    <textarea></textarea>
                                 </div>
                                 <div ng-switch-when="2">
                                     <div style="padding: 5px">
@@ -108,7 +160,7 @@
                     <div class="form_row" style="margin-bottom: 10px">
                         <div class="field">
                             <a href="#question-edit-{{question_type_name}}/{{question.id}}" class="blue btn">Edit Question</a>
-                            <a href="#question-list" class="red btn">Cancel</a>
+                            <a href="#question-all" class="red btn">Cancel</a>
                         </div>
                     </div>
                 </div>
