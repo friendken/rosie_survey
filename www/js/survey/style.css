@@ -614,15 +614,11 @@ padding:5px;
 .list-checkbox input[type="radio"] {
     display:none;
 }
-.list-checkbox.new input[type="radio"] + label span{
-  background: transparent;
-}
-.list-checkbox input[type="radio"] + label span {
+
+.list-checkbox input[type="radio"] + label span{
   display: inline-block;
   height: 70px;
   width: 50px;
-    position: relative;
-  z-index: 4;
   margin: 0px 0px 0 0;
   vertical-align: middle;
   background: url(img/list_checkbox_checked.png) left top no-repeat;
@@ -630,14 +626,40 @@ padding:5px;
   background-position: center right;
   text-align: right;
 }
-.list-checkbox input[type="radio"]:checked + label span {
+.list-checkbox input[type="radio"] + label i {
+    display: inline-block;
+  height: 70px;
+  width: 50px;
+  margin: 0px 0px 0 0;
+  vertical-align: middle;
+  background: url(img/list_checkbox_checked.png) left top no-repeat;
+  cursor: pointer;
+  background-position: center right;
+  text-align: right;
+}
+.list-checkbox input[type="radio"]:checked + label i {
  background: url(img/list_checkbox.png) left top no-repeat;
   background-position: center right;
   text-align: right;
   position: relative;
   z-index: 9;
 }
-
+}
+.list-checkbox input[type="radio"]:checked + label span{
+ background: url(img/list_checkbox.png) left top no-repeat;
+  background-position: center right;
+  text-align: right;
+  position: relative;
+  z-index: 9;
+}
+.abc_1 .list-checkbox i{
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  height: 60px;
+  z-index: 9;
+  cursor: pointer;
+}
 
 .table_custom_2 thead th {
   padding: 8px 15px;
@@ -859,8 +881,6 @@ border-bottom: 1px solid #c3c8ce
 table.table_custom_1.des-table tr:nth-child(3) td p{
 line-height:22px
 }
-.table_custom_2 select[name='select_language_level_1']{
-color:rgb(51, 51, 51)}
 /*#page-quesetion .question-list:nth-child(odd){*/
   /*width: 50%;*/
   /*float: left;*/

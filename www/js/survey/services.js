@@ -11,7 +11,7 @@ angular.module('survey.services', [])
         .service('$question',['$http',function($http){
             return{
                 getQuestion: function(mode,pagination,callback){
-                    $http.get(config.base + '/survey/survey/getSurvey/' + mode + '/' + pagination).success(function(data){
+                    $http.get(config.base + 'survey/survey/getSurvey/' + mode + '/' + pagination).success(function(data){
                         callback(data)
                     })
                 }

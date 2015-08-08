@@ -106,14 +106,18 @@ angular.module('survey.controllers', ['ui.bootstrap'])
         $scope.resultAnswer = []
         $scope.progress_custom = 'progressBar_1'
         $scope.answer_id = ''
+        $scope.paginationCurrent = 1
         $scope.processPage = []
 
         //$rootScope.modeQuestion = 3;
         $http.get(config.base + 'survey/survey/getNumOfPage/' + $rootScope.modeQuestion).success(function (result) {
-            $scope.lastPage = result
+            $scope.lastPage = result.lastPage
+            $rootScope.pagination = result.paginationCurrent
+            $scope.answer_id = result.answer_id
             for(var i = 1; i <= $scope.lastPage;i++){
                 $scope.processPage.push(i);
             }
+            $scope.init($rootScope.pagination)
         })
         $scope.init = function (page) {
             if(page == 5){
@@ -130,7 +134,7 @@ angular.module('survey.controllers', ['ui.bootstrap'])
                 else {
                     if ($rootScope.pagination == $scope.lastPage)
                         $scope.nextBtn = 1
-                    $scope.questions = data
+                    $scope.questions = data.question
                     $scope.renderPagination(page)
                 }
             })
@@ -143,7 +147,6 @@ angular.module('survey.controllers', ['ui.bootstrap'])
                 }
             }
         });
-        $scope.init($rootScope.pagination)
         $scope.renderPagination = function (page){
             $('.number').removeClass('done')
             $('.number').removeClass('active')
@@ -191,20 +194,28 @@ angular.module('survey.controllers', ['ui.bootstrap'])
                 var url = config.base + '/survey/survey/saveAnswer/' + $scope.answer_id
             else
                 var url = config.base + '/survey/survey/saveAnswer'
-            console.log($scope.resultAnswer)
-            $http.post(url, {results: $scope.resultAnswer,question_mode: $rootScope.modeQuestion}).success(function (data) {
+            var dataAnswer = {
+                results: $scope.resultAnswer,
+                question_mode: $rootScope.modeQuestion,
+                paginationCurrent: parseInt($rootScope.pagination) + 1
+            }
+            $http.post(url, dataAnswer).success(function (data) {
                 $scope.answer_id = data.answer_id
                 $scope.resultAnswer = []
             })
         }
         $scope.progressBar = function(key,el){
             $scope.progress_custom = 'abc_1 progressBar_' + key;
-            $(el).closest('div').removeClass()
             var current = $(el).closest('div');
             var current_parent = $(el).closest('div.answer_survey')
             var count_all = $(el).closest('div');
             var id_progress = count_all.attr('id') 
             count_all = count_all.find('span.list-checkbox').length;
+            var j = 0;
+            $(el).closest('div').removeClass()
+            $("#"+id_progress).children(".list-checkbox").each(function(j, k) {
+               if(++j < count_all) $(k).removeClass("new");
+            });
             var percent = ((key/count_all)*100)+'%'
             if($('#'+id_progress).find('.custom_progess').length >= 1){
               $('#'+id_progress).find('.custom_progess').remove()
@@ -215,7 +226,10 @@ angular.module('survey.controllers', ['ui.bootstrap'])
             $(el).closest('div').addClass($scope.progress_custom);
             $('.checkobox_progress').css('width','100%')
 
-
+            var i = 0;
+            $("#"+id_progress).children(".list-checkbox").each(function(i, k) {
+               if(++i < key) $(k).addClass("new");
+            });
 
         }
         $scope.saveData = function () {

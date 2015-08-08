@@ -24,31 +24,44 @@ class Survey extends CI_Controller
             $question = $this->getQuestionDetail($row);
             array_push($questions, $question);
         }
-        echo json_encode($questions);
+//        ($this->session->userdata('answer_id') != 'undefined')? $answer_id = $this->session->userdata('answer_id'): $answer_id = '';
+//        ($this->session->userdata('pagination_current') != 'undefined')? $pagination_current = $this->session->userdata('pagination_current'): $pagination_current = 1;
+        echo json_encode(array('question' => $questions));
     }
 
-    public function getNumOfPage($mode_id)
-    {
+    public function getNumOfPage($mode_id){
         $number = $this->pagination->get_num_of_page($mode_id);
-        echo $number;
+        ($this->session->userdata('answer_id'))? $answer_id = $this->session->userdata('answer_id'): $answer_id = '';
+        ($this->session->userdata('pagination_current'))? $pagination_current = $this->session->userdata('pagination_current'): $pagination_current = 1;
+        echo json_encode(array('lastPage' => $number,
+                               'paginationCurrent' => $pagination_current,
+                               'answer_id' => $answer_id));
     }
 
-    public function saveAnswer($answer_id = null)
-    {
+    public function saveAnswer($answer_id = null){
         $data = $this->input->json();
         $this->load->model('answers_model', 'answers');
         $this->load->model('answers_detail_model', 'answers_detail');
         try {
             if(!isset($answer_id))
                 $answer_id = $this->answers->insert(array('question_mode_id' => $data->question_mode));
+
             foreach ($data->results as $key => $row) {
+                $this->answers_detail->delete(array('answer_id' => $answer_id,'question_id' => $row->question_id));
                 $row->answer_id = $answer_id;
                 $this->answers_detail->insert($row);
             }
         } catch (Exception $exc) {
             echo json_encode(array('status' => 'success', 'message' => $exc->getMessage()));
         }
-        echo json_encode(array('status' => 'success', 'answer_id' => $answer_id));
+        $this->session->set_userdata(array('answer_id' => $answer_id,
+                                           'pagination_current' => $data->paginationCurrent));
+        if($data->paginationCurrent == 8){
+            echo 'reset session';
+            $this->session->unset_userdata('answer_id');
+            $this->session->unset_userdata('pagination_current');
+        }
+        echo json_encode(array('status' => 'success','answer_id' => $answer_id));
     }
 
     public function getQuestionDetail($question_id)
@@ -110,5 +123,11 @@ class Survey extends CI_Controller
         }
         $question->question_detail = $detail;
         return $question;
+    }
+    public function resetSession(){
+        $this->session->unset_userdata('answer_id');
+        $this->session->unset_userdata('pagination_current');
+        echo $this->session->userdata('answer_id');
+        echo $this->session->userdata('pagination_current');
     }
 }
